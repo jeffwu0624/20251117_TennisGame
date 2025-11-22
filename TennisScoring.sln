@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TennisScoring.Console.Tests
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TennisScoring.WinForms", "src\TennisScoring.WinForms\TennisScoring.WinForms.csproj", "{3B053D11-3554-45CF-A6F4-B8D9D92A5021}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TennisScoring.WinForms.Tests", "tests\TennisScoring.WinForms.Tests\TennisScoring.WinForms.Tests.csproj", "{C8EDC684-5BB1-4EE0-AC07-B262DBDF4630}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,18 @@ Global
 		{3B053D11-3554-45CF-A6F4-B8D9D92A5021}.Release|x64.Build.0 = Release|Any CPU
 		{3B053D11-3554-45CF-A6F4-B8D9D92A5021}.Release|x86.ActiveCfg = Release|Any CPU
 		{3B053D11-3554-45CF-A6F4-B8D9D92A5021}.Release|x86.Build.0 = Release|Any CPU
+		{C8EDC684-5BB1-4EE0-AC07-B262DBDF4630}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8EDC684-5BB1-4EE0-AC07-B262DBDF4630}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8EDC684-5BB1-4EE0-AC07-B262DBDF4630}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{C8EDC684-5BB1-4EE0-AC07-B262DBDF4630}.Debug|x64.Build.0 = Debug|Any CPU
+		{C8EDC684-5BB1-4EE0-AC07-B262DBDF4630}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C8EDC684-5BB1-4EE0-AC07-B262DBDF4630}.Debug|x86.Build.0 = Debug|Any CPU
+		{C8EDC684-5BB1-4EE0-AC07-B262DBDF4630}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8EDC684-5BB1-4EE0-AC07-B262DBDF4630}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8EDC684-5BB1-4EE0-AC07-B262DBDF4630}.Release|x64.ActiveCfg = Release|Any CPU
+		{C8EDC684-5BB1-4EE0-AC07-B262DBDF4630}.Release|x64.Build.0 = Release|Any CPU
+		{C8EDC684-5BB1-4EE0-AC07-B262DBDF4630}.Release|x86.ActiveCfg = Release|Any CPU
+		{C8EDC684-5BB1-4EE0-AC07-B262DBDF4630}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -97,5 +111,6 @@ Global
 		{E65CAF28-0134-4E8B-8FF1-2F00BB57BF9F} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
 		{B82FF616-C725-42C0-9AEE-1B3A6B3698DF} = {0AB3BF05-4346-4AA6-1389-037BE0695223}
 		{3B053D11-3554-45CF-A6F4-B8D9D92A5021} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
+		{C8EDC684-5BB1-4EE0-AC07-B262DBDF4630} = {0AB3BF05-4346-4AA6-1389-037BE0695223}
 	EndGlobalSection
 EndGlobal
