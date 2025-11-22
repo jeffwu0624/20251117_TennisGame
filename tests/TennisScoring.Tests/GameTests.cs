@@ -85,4 +85,45 @@ public class GameTests
         game.PointWonBy(Side.PlayerB);
         game.GetScoreText().Should().Be("Thirty-All");
     }
+
+    // Deuce 狀態測試 (US2)
+    [Fact]
+    public void ScoreThreeThree_ShouldReturn_Deuce()
+    {
+        var game = new Game();
+        game.PointWonBy(Side.PlayerA);
+        game.PointWonBy(Side.PlayerA);
+        game.PointWonBy(Side.PlayerA);
+        game.PointWonBy(Side.PlayerB);
+        game.PointWonBy(Side.PlayerB);
+        game.PointWonBy(Side.PlayerB);
+        game.GetScoreText().Should().Be("Deuce");
+    }
+
+    [Fact]
+    public void ScoreFourFour_ShouldReturn_Deuce()
+    {
+        var game = new Game();
+        game.PointWonBy(Side.PlayerA);
+        game.PointWonBy(Side.PlayerA);
+        game.PointWonBy(Side.PlayerA);
+        game.PointWonBy(Side.PlayerA);
+        game.PointWonBy(Side.PlayerB);
+        game.PointWonBy(Side.PlayerB);
+        game.PointWonBy(Side.PlayerB);
+        game.PointWonBy(Side.PlayerB);
+        game.GetScoreText().Should().Be("Deuce");
+    }
+
+    [Fact]
+    public void ScoreFiveFive_ShouldReturn_Deuce()
+    {
+        var game = new Game();
+        for (int i = 0; i < 5; i++)
+        {
+            game.PointWonBy(Side.PlayerA);
+            game.PointWonBy(Side.PlayerB);
+        }
+        game.GetScoreText().Should().Be("Deuce");
+    }
 }
