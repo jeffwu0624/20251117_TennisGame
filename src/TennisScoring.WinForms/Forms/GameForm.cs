@@ -116,32 +116,26 @@ public class GameForm : Form
         var g = e.Graphics;
         g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
 
-        // Draw Background (Black)
-        g.Clear(Color.Black);
+        // Draw Background (Tennis Court Green)
+        g.Clear(Color.FromArgb(34, 139, 34)); // ForestGreen
 
         // Draw Center Line
-        using (var pen = new Pen(Color.Gray, 2) { DashStyle = System.Drawing.Drawing2D.DashStyle.Dash })
+        using (var pen = new Pen(Color.White, 4) { DashStyle = System.Drawing.Drawing2D.DashStyle.Dash })
         {
             g.DrawLine(pen, ClientSize.Width / 2, 0, ClientSize.Width / 2, ClientSize.Height);
         }
 
         // Draw Paddles
-        using (var brushA = new SolidBrush(Color.Blue))
+        using (var brushPaddle = new SolidBrush(Color.White))
         {
-            g.FillRectangle(brushA, state.PlayerAPaddle);
-        }
-        using (var brushB = new SolidBrush(Color.Red))
-        {
-            g.FillRectangle(brushB, state.PlayerBPaddle);
+            g.FillRectangle(brushPaddle, state.PlayerAPaddle);
+            g.FillRectangle(brushPaddle, state.PlayerBPaddle);
         }
 
         // Draw Ball
         using (var brushBall = new SolidBrush(Color.Yellow))
         {
-            float r = 10; // Assuming radius 10, but state has position. 
-            // Wait, GameState has BallPosition (PointF). Ball radius is in Engine constants.
-            // I should probably expose Radius in GameState or assume it.
-            // Engine uses 10f.
+            float r = 10; 
             g.FillEllipse(brushBall, state.BallPosition.X - r, state.BallPosition.Y - r, r * 2, r * 2);
         }
 
