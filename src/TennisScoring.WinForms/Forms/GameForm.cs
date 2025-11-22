@@ -11,6 +11,7 @@ public class GameForm : Form
     private Button _btnStart = null!;
     private Panel _pnlSetup = null!;
     private PongEngine? _gameEngine;
+    private InputState _inputState = new InputState();
 
     public GameForm()
     {
@@ -74,5 +75,34 @@ public class GameForm : Form
         _gameEngine.Start();
 
         Focus(); // Ensure form has focus for key events
+    }
+
+    protected override void OnKeyDown(KeyEventArgs e)
+    {
+        base.OnKeyDown(e);
+        UpdateInputState(e.KeyCode, true);
+    }
+
+    protected override void OnKeyUp(KeyEventArgs e)
+    {
+        base.OnKeyUp(e);
+        UpdateInputState(e.KeyCode, false);
+    }
+
+    private void UpdateInputState(Keys key, bool isPressed)
+    {
+        if (_gameEngine == null) return;
+
+        switch (key)
+        {
+            case Keys.Q: _inputState.PlayerAUp = isPressed; break;
+            case Keys.J: _inputState.PlayerADown = isPressed; break;
+            case Keys.Up: _inputState.PlayerBUp = isPressed; break;
+            case Keys.Down: _inputState.PlayerBDown = isPressed; break;
+            case Keys.Space: _inputState.Serve = isPressed; break;
+            case Keys.Escape: if (isPressed) Application.Exit(); break;
+        }
+
+        _gameEngine.HandleInput(_inputState);
     }
 }
