@@ -15,13 +15,54 @@ public class PongEngine : IPongGameEngine
     public bool IsRunning { get; private set; }
     public Side ServingSide { get; private set; }
 
+    private readonly Size _gameArea;
+    private const float PaddleWidth = 20f;
+    private const float PaddleHeight = 100f;
+    private const float PaddleSpeed = 400f;
+    private const float BallRadius = 10f;
+    private const float BallSpeed = 500f;
+    private const float PaddleMargin = 30f;
+
     public PongEngine(string playerAName, string playerBName, Size gameArea)
     {
-        // Initialization logic will be implemented in T010
-        PlayerA = null!;
-        PlayerB = null!;
-        Ball = null!;
-        ScoringGame = null!;
+        _gameArea = gameArea;
+        ScoringGame = new Game();
+
+        // Initialize Paddles
+        float centerY = (gameArea.Height - PaddleHeight) / 2;
+        var paddleA = new Paddle(PaddleMargin, centerY, PaddleWidth, PaddleHeight, PaddleSpeed, Color.Blue);
+        var paddleB = new Paddle(gameArea.Width - PaddleMargin - PaddleWidth, centerY, PaddleWidth, PaddleHeight, PaddleSpeed, Color.Red);
+
+        // Initialize Players
+        PlayerA = new Player(playerAName, Side.PlayerA, paddleA);
+        PlayerB = new Player(playerBName, Side.PlayerB, paddleB);
+
+        // Initialize Ball
+        Ball = new Ball(0, 0, BallRadius, BallSpeed);
+
+        // Randomize Server
+        ServingSide = new Random().Next(2) == 0 ? Side.PlayerA : Side.PlayerB;
+        
+        ResetBall();
+    }
+
+    private void ResetBall()
+    {
+        // Place ball in front of the serving paddle
+        if (ServingSide == Side.PlayerA)
+        {
+            Ball.Reset(
+                new PointF(PlayerA.Paddle.Bounds.Right + BallRadius + 5, PlayerA.Paddle.Bounds.Y + PaddleHeight / 2),
+                PointF.Empty // Velocity 0 until served
+            );
+        }
+        else
+        {
+            Ball.Reset(
+                new PointF(PlayerB.Paddle.Bounds.Left - BallRadius - 5, PlayerB.Paddle.Bounds.Y + PaddleHeight / 2),
+                PointF.Empty
+            );
+        }
     }
 
     public void Start()
