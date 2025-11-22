@@ -77,6 +77,57 @@ public class GameForm : Form
         Focus(); // Ensure form has focus for key events
     }
 
+    protected override void OnPaint(PaintEventArgs e)
+    {
+        base.OnPaint(e);
+
+        if (_gameEngine == null) return;
+
+        var state = _gameEngine.GetState();
+        var g = e.Graphics;
+        g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+
+        // Draw Background (Black)
+        g.Clear(Color.Black);
+
+        // Draw Center Line
+        using (var pen = new Pen(Color.Gray, 2) { DashStyle = System.Drawing.Drawing2D.DashStyle.Dash })
+        {
+            g.DrawLine(pen, ClientSize.Width / 2, 0, ClientSize.Width / 2, ClientSize.Height);
+        }
+
+        // Draw Paddles
+        using (var brushA = new SolidBrush(Color.Blue))
+        {
+            g.FillRectangle(brushA, state.PlayerAPaddle);
+        }
+        using (var brushB = new SolidBrush(Color.Red))
+        {
+            g.FillRectangle(brushB, state.PlayerBPaddle);
+        }
+
+        // Draw Ball
+        using (var brushBall = new SolidBrush(Color.Yellow))
+        {
+            float r = 10; // Assuming radius 10, but state has position. 
+            // Wait, GameState has BallPosition (PointF). Ball radius is in Engine constants.
+            // I should probably expose Radius in GameState or assume it.
+            // Engine uses 10f.
+            g.FillEllipse(brushBall, state.BallPosition.X - r, state.BallPosition.Y - r, r * 2, r * 2);
+        }
+
+        // Draw Score
+        if (!string.IsNullOrEmpty(state.ScoreText))
+        {
+            using (var font = new Font("Arial", 24, FontStyle.Bold))
+            using (var brush = new SolidBrush(Color.White))
+            {
+                var size = g.MeasureString(state.ScoreText, font);
+                g.DrawString(state.ScoreText, (ClientSize.Width - size.Width) / 2, 50, font, brush);
+            }
+        }
+    }
+
     protected override void OnKeyDown(KeyEventArgs e)
     {
         base.OnKeyDown(e);
