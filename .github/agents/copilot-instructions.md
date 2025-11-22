@@ -3,6 +3,7 @@
 Auto-generated from all feature plans. Last updated: 2025-11-23
 
 ## Active Technologies
+- N/A (In-memory state) (003-winforms-pong-tennis)
 
 - C# 12 / .NET 8.0 + `System.Windows.Forms`, `System.Drawing`, `TennisScoring` (Project Reference) (003-winforms-pong-tennis)
 
@@ -22,6 +23,8 @@ tests/
 C# 12 / .NET 8.0: Follow standard conventions
 
 ## Recent Changes
+- 003-winforms-pong-tennis: Added C# 12 / .NET 8.0 + `System.Windows.Forms`, `System.Drawing`, `TennisScoring` (Project Reference)
+- 003-winforms-pong-tennis: Added C# 12 / .NET 8.0 + `System.Windows.Forms`, `System.Drawing`, `TennisScoring` (Project Reference)
 
 - 003-winforms-pong-tennis: Added C# 12 / .NET 8.0 + `System.Windows.Forms`, `System.Drawing`, `TennisScoring` (Project Reference)
 
