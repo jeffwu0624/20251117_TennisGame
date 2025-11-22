@@ -47,9 +47,9 @@
 
 - [x] T023 [US3] 在 `src/TennisScoring.WinForms/Engine/PongEngine.cs` 將 `TennisScoring.Game` 整合至 `PongEngine` 並處理 "球出界" 事件
 - [x] T024 [US3] 在 `src/TennisScoring.WinForms/Engine/PongEngine.cs` 實作 `ScoreChanged` 與 `GameEnded` 事件觸發
-- [ ] T025 [US3] 在 `tests/TennisScoring.WinForms.Tests/PongEngineScoringTests.cs` 加入計分整合的單元測試
+- [x] T025 [US3] 在 `tests/TennisScoring.WinForms.Tests/PongEngineScoringTests.cs` 加入計分整合的單元測試
 - [x] T026 [US3] 在 `src/TennisScoring.WinForms/Forms/GameForm.cs` 更新 `GameForm` 以顯示 `GameState` 中的分數文字
-- [ ] T027 [US3] 在 `src/TennisScoring.WinForms/Forms/GameForm.cs` 實作 `GameEnded` 事件時顯示遊戲結束並停止迴圈
+- [x] T027 [US3] 在 `src/TennisScoring.WinForms/Forms/GameForm.cs` 實作 `GameEnded` 事件時顯示遊戲結束並停止迴圈
 - [x] T028 [US3] 在 `src/TennisScoring.WinForms/Forms/GameForm.cs` 實作 Esc 鍵關閉應用程式
 
 ## Phase 6: Polish (修飾)

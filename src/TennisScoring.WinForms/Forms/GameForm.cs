@@ -90,10 +90,20 @@ public class GameForm : Form
         
         // Initialize Engine
         _gameEngine = new PongEngine(nameA, nameB, ClientSize);
+        _gameEngine.GameEnded += GameEngine_GameEnded;
         _gameEngine.Start();
         _gameTimer.Start();
 
         Focus(); // Ensure form has focus for key events
+    }
+
+    private void GameEngine_GameEnded(object? sender, GameEndedEventArgs e)
+    {
+        _gameTimer.Stop();
+        Invalidate(); // Draw final state
+        MessageBox.Show($"{e.Message}\nWinner: {e.Winner}", "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        // Optional: Reset to setup screen?
+        // For now, just stop.
     }
 
     protected override void OnPaint(PaintEventArgs e)
@@ -142,7 +152,7 @@ public class GameForm : Form
             using (var brush = new SolidBrush(Color.White))
             {
                 var size = g.MeasureString(state.ScoreText, font);
-                g.DrawString(state.ScoreText, (ClientSize.Width - size.Width) / 2, 50, font, brush);
+                g.DrawString(state.ScoreText, font, brush, (ClientSize.Width - size.Width) / 2, 50);
             }
         }
     }
