@@ -8,7 +8,7 @@
 *Goal: 初始化專案結構與相依性*
 
 - [x] T001 在 `src/` 建立 `TennisScoring.WinForms` 專案
-- [ ] T002 在 `TennisScoring.WinForms` 中加入對 `TennisScoring` 的專案參考
+- [x] T002 在 `TennisScoring.WinForms` 中加入對 `TennisScoring` 的專案參考
 - [ ] T003 在 `tests/` 建立 `TennisScoring.WinForms.Tests` xUnit 測試專案
 - [ ] T004 在 `TennisScoring.WinForms.Tests` 中加入對 `TennisScoring.WinForms` 的專案參考
 
