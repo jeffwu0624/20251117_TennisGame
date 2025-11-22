@@ -15,7 +15,7 @@
 ## Phase 2: Foundational (基礎建設)
 *Goal: 實作資料模型與合約中定義的核心實體與介面*
 
-- [ ] T005 [P] 在 `src/TennisScoring.WinForms/Engine/IPongGameEngine.cs` 定義 `IPongGameEngine`, `InputState`, `GameState`
+- [x] T005 [P] 在 `src/TennisScoring.WinForms/Engine/IPongGameEngine.cs` 定義 `IPongGameEngine`, `InputState`, `GameState`
 - [ ] T006 [P] 在 `src/TennisScoring.WinForms/Entities/Paddle.cs` 實作 `Paddle` 實體
 - [ ] T007 [P] 在 `src/TennisScoring.WinForms/Entities/Ball.cs` 實作 `Ball` 實體
 - [ ] T008 [P] 在 `src/TennisScoring.WinForms/Entities/Player.cs` 實作 `Player` 實體
