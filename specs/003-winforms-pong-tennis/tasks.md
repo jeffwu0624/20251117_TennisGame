@@ -45,12 +45,12 @@
 ## Phase 5: User Story 3 - Scoring & Win (計分與勝負)
 *Goal: 整合 TennisScoring、顯示分數、處理獲勝條件*
 
-- [ ] T023 [US3] 在 `src/TennisScoring.WinForms/Engine/PongEngine.cs` 將 `TennisScoring.Game` 整合至 `PongEngine` 並處理 "球出界" 事件
-- [ ] T024 [US3] 在 `src/TennisScoring.WinForms/Engine/PongEngine.cs` 實作 `ScoreChanged` 與 `GameEnded` 事件觸發
+- [x] T023 [US3] 在 `src/TennisScoring.WinForms/Engine/PongEngine.cs` 將 `TennisScoring.Game` 整合至 `PongEngine` 並處理 "球出界" 事件
+- [x] T024 [US3] 在 `src/TennisScoring.WinForms/Engine/PongEngine.cs` 實作 `ScoreChanged` 與 `GameEnded` 事件觸發
 - [ ] T025 [US3] 在 `tests/TennisScoring.WinForms.Tests/PongEngineScoringTests.cs` 加入計分整合的單元測試
-- [ ] T026 [US3] 在 `src/TennisScoring.WinForms/Forms/GameForm.cs` 更新 `GameForm` 以顯示 `GameState` 中的分數文字
+- [x] T026 [US3] 在 `src/TennisScoring.WinForms/Forms/GameForm.cs` 更新 `GameForm` 以顯示 `GameState` 中的分數文字
 - [ ] T027 [US3] 在 `src/TennisScoring.WinForms/Forms/GameForm.cs` 實作 `GameEnded` 事件時顯示遊戲結束並停止迴圈
-- [ ] T028 [US3] 在 `src/TennisScoring.WinForms/Forms/GameForm.cs` 實作 Esc 鍵關閉應用程式
+- [x] T028 [US3] 在 `src/TennisScoring.WinForms/Forms/GameForm.cs` 實作 Esc 鍵關閉應用程式
 
 ## Phase 6: Polish (修飾)
 *Goal: 視覺改進與參數調整*
