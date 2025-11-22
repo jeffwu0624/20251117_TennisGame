@@ -10,7 +10,7 @@
 - [x] T001 在 `src/` 建立 `TennisScoring.WinForms` 專案
 - [x] T002 在 `TennisScoring.WinForms` 中加入對 `TennisScoring` 的專案參考
 - [x] T003 在 `tests/` 建立 `TennisScoring.WinForms.Tests` xUnit 測試專案
-- [ ] T004 在 `TennisScoring.WinForms.Tests` 中加入對 `TennisScoring.WinForms` 的專案參考
+- [x] T004 在 `TennisScoring.WinForms.Tests` 中加入對 `TennisScoring.WinForms` 的專案參考
 
 ## Phase 2: Foundational (基礎建設)
 *Goal: 實作資料模型與合約中定義的核心實體與介面*
