@@ -126,4 +126,59 @@ public class GameTests
         }
         game.GetScoreText().Should().Be("Deuce");
     }
+
+    // Advantage 狀態測試 (US3)
+    [Fact]
+    public void ScoreFourThree_ShouldReturn_PlayerAAdv()
+    {
+        var game = new Game();
+        game.PointWonBy(Side.PlayerA);
+        game.PointWonBy(Side.PlayerA);
+        game.PointWonBy(Side.PlayerA);
+        game.PointWonBy(Side.PlayerA);
+        game.PointWonBy(Side.PlayerB);
+        game.PointWonBy(Side.PlayerB);
+        game.PointWonBy(Side.PlayerB);
+        game.GetScoreText().Should().Be("PlayerA Adv");
+    }
+
+    [Fact]
+    public void ScoreThreeFour_ShouldReturn_PlayerBAdv()
+    {
+        var game = new Game();
+        game.PointWonBy(Side.PlayerA);
+        game.PointWonBy(Side.PlayerA);
+        game.PointWonBy(Side.PlayerA);
+        game.PointWonBy(Side.PlayerB);
+        game.PointWonBy(Side.PlayerB);
+        game.PointWonBy(Side.PlayerB);
+        game.PointWonBy(Side.PlayerB);
+        game.GetScoreText().Should().Be("PlayerB Adv");
+    }
+
+    [Fact]
+    public void ScoreFiveFour_ShouldReturn_PlayerAAdv()
+    {
+        var game = new Game();
+        for (int i = 0; i < 4; i++)
+        {
+            game.PointWonBy(Side.PlayerA);
+            game.PointWonBy(Side.PlayerB);
+        }
+        game.PointWonBy(Side.PlayerA);
+        game.GetScoreText().Should().Be("PlayerA Adv");
+    }
+
+    [Fact]
+    public void ScoreFourFive_ShouldReturn_PlayerBAdv()
+    {
+        var game = new Game();
+        for (int i = 0; i < 4; i++)
+        {
+            game.PointWonBy(Side.PlayerA);
+            game.PointWonBy(Side.PlayerB);
+        }
+        game.PointWonBy(Side.PlayerB);
+        game.GetScoreText().Should().Be("PlayerB Adv");
+    }
 }
