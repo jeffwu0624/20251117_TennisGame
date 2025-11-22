@@ -27,7 +27,7 @@
 - [x] T010 [US1] 在 `src/TennisScoring.WinForms/Engine/PongEngine.cs` 實作 `PongEngine` 初始化邏輯 (玩家、隨機發球方、重置狀態)
 - [x] T011 [US1] 在 `tests/TennisScoring.WinForms.Tests/PongEngineTests.cs` 建立 `PongEngine` 初始化的單元測試
 - [x] T012 [US1] 在 `src/TennisScoring.WinForms/Forms/GameForm.cs` 建立 `GameForm` 並啟用 DoubleBuffered
-- [ ] T013 [US1] 在 `src/TennisScoring.WinForms/Forms/GameForm.cs` 實作簡易姓名輸入機制 (例如 InputBox 或初始表單狀態)
+- [x] T013 [US1] 在 `src/TennisScoring.WinForms/Forms/GameForm.cs` 實作簡易姓名輸入機制 (例如 InputBox 或初始表單狀態)
 - [ ] T014 [US1] 在 `src/TennisScoring.WinForms/Forms/GameForm.cs` 連接 `GameForm` 以使用輸入的姓名初始化 `PongEngine`
 
 ## Phase 4: User Story 2 - Gameplay & Control (遊戲進行與控制)
