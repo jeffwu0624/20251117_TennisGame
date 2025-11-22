@@ -1,5 +1,6 @@
 using System.Windows.Forms;
 using System.Drawing;
+using TennisScoring.WinForms.Engine;
 
 namespace TennisScoring.WinForms.Forms;
 
@@ -9,6 +10,7 @@ public class GameForm : Form
     private TextBox _txtPlayerB = null!;
     private Button _btnStart = null!;
     private Panel _pnlSetup = null!;
+    private PongEngine? _gameEngine;
 
     public GameForm()
     {
@@ -66,7 +68,11 @@ public class GameForm : Form
     private void StartGame(string nameA, string nameB)
     {
         _pnlSetup.Visible = false;
-        // Initialize Engine here (T014)
+        
+        // Initialize Engine
+        _gameEngine = new PongEngine(nameA, nameB, ClientSize);
+        _gameEngine.Start();
+
         Focus(); // Ensure form has focus for key events
     }
 }
