@@ -32,9 +32,13 @@ public class Game
     /// <summary>
     /// 取得當前比分的網球術語文字表示
     /// </summary>
-    /// <returns>比分文字，如 "Love-All"、"Fifteen-Love"、"Thirty-All" 等</returns>
+    /// <returns>比分文字，如 "Love-All"、"Fifteen-Love"、"Deuce" 等</returns>
     public string GetScoreText()
     {
+        // Deuce 判斷（雙方 >= 3 分且平手）
+        if (_playerAScore >= 3 && _playerBScore >= 3 && _playerAScore == _playerBScore)
+            return "Deuce";
+
         // 基本計分（0-3）
         string scoreA = MapScore(_playerAScore);
         string scoreB = MapScore(_playerBScore);
