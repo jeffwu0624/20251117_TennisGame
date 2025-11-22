@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TennisScoring.Console", "sr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TennisScoring.Console.Tests", "tests\TennisScoring.Console.Tests\TennisScoring.Console.Tests.csproj", "{B82FF616-C725-42C0-9AEE-1B3A6B3698DF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TennisScoring.WinForms", "src\TennisScoring.WinForms\TennisScoring.WinForms.csproj", "{3B053D11-3554-45CF-A6F4-B8D9D92A5021}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +75,18 @@ Global
 		{B82FF616-C725-42C0-9AEE-1B3A6B3698DF}.Release|x64.Build.0 = Release|Any CPU
 		{B82FF616-C725-42C0-9AEE-1B3A6B3698DF}.Release|x86.ActiveCfg = Release|Any CPU
 		{B82FF616-C725-42C0-9AEE-1B3A6B3698DF}.Release|x86.Build.0 = Release|Any CPU
+		{3B053D11-3554-45CF-A6F4-B8D9D92A5021}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B053D11-3554-45CF-A6F4-B8D9D92A5021}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B053D11-3554-45CF-A6F4-B8D9D92A5021}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{3B053D11-3554-45CF-A6F4-B8D9D92A5021}.Debug|x64.Build.0 = Debug|Any CPU
+		{3B053D11-3554-45CF-A6F4-B8D9D92A5021}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3B053D11-3554-45CF-A6F4-B8D9D92A5021}.Debug|x86.Build.0 = Debug|Any CPU
+		{3B053D11-3554-45CF-A6F4-B8D9D92A5021}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B053D11-3554-45CF-A6F4-B8D9D92A5021}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B053D11-3554-45CF-A6F4-B8D9D92A5021}.Release|x64.ActiveCfg = Release|Any CPU
+		{3B053D11-3554-45CF-A6F4-B8D9D92A5021}.Release|x64.Build.0 = Release|Any CPU
+		{3B053D11-3554-45CF-A6F4-B8D9D92A5021}.Release|x86.ActiveCfg = Release|Any CPU
+		{3B053D11-3554-45CF-A6F4-B8D9D92A5021}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -82,5 +96,6 @@ Global
 		{1D4A834E-26EF-4C58-9D5D-38767300B217} = {0AB3BF05-4346-4AA6-1389-037BE0695223}
 		{E65CAF28-0134-4E8B-8FF1-2F00BB57BF9F} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
 		{B82FF616-C725-42C0-9AEE-1B3A6B3698DF} = {0AB3BF05-4346-4AA6-1389-037BE0695223}
+		{3B053D11-3554-45CF-A6F4-B8D9D92A5021} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
 	EndGlobalSection
 EndGlobal
