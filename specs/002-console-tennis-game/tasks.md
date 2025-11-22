@@ -12,7 +12,7 @@ description: "Task list for feature 002-console-tennis-game"
 
 **Purpose**: 建立新主控台專案與對應測試專案
 
-- [ ] T001 在 `src/TennisScoring.Console` 建立 .NET 8 主控台專案 `TennisScoring.Console.csproj`
+- [X] T001 在 `src/TennisScoring.Console` 建立 .NET 8 主控台專案 `TennisScoring.Console.csproj`
 - [ ] T002 將 `src/TennisScoring.Console/TennisScoring.Console.csproj` 加入 `TennisScoring.sln`
 - [ ] T003 在 `src/TennisScoring.Console/TennisScoring.Console.csproj` 新增對 `src/TennisScoring/TennisScoring.csproj` 的專案參考
 - [ ] T004 更新 `src/TennisScoring.Console/TennisScoring.Console.csproj` 使 `<Nullable>` 與 `<TreatWarningsAsErrors>` 啟用
