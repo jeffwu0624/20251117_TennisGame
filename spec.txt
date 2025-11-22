@@ -1,0 +1,52 @@
+你是一位資深 C# 工程師，負責以 Spec-kit + BDD（Gherkin）+ TDD 開發一個 Tennis Score Library。請依以下規格產出對應的 feature 檔、測試案例、程式骨架與實作建議。
+
+開發目標：
+建立一個單一 Game 的計分 Library（TennisScoring），負責根據 A/B 球員的得分，輸出正確的文字比分描述。不包含 Set / Match（之後會擴充）。
+
+功能規格（以 BDD 描述）：
+請使用 Gherkin 語法產生完整 feature，內容包含：
+
+Feature：Tennis single game scoring
+需求如下（以下每一條都要加入 Examples）：
+
+A=0 B=0 顯示 Love-All
+A=1 B=0 顯示 Fifteen-Love
+A=2 B=0 顯示 Thirty-Love
+A=3 B=0 顯示 Forty-Love
+A=0 B=1 顯示 Love-Fifteen
+A=0 B=2 顯示 Love-Thirty
+A=0 B=3 顯示 Love-Forty
+A=1 B=1 顯示 Fifteen-All
+A=2 B=2 顯示 Thirty-All
+A=3 B=3 顯示 Deuce
+A=4 B=4 顯示 Deuce
+A=4 B=3 顯示 A球員 Adv
+A=5 B=3 顯示 A球員 Win
+A=3 B=4 顯示 B球員 Adv
+A=3 B=5 顯示 B球員 Win
+
+Feature 結構需求：
+使用 Scenario Outline + Examples。
+每個案例需使用：
+當 A 球員連續得分 <aPoints> 次
+並且 B 球員連續得分 <bPoints> 次
+那麼 顯示的比分文字應該是 "<expected>"
+使用「背景: 一局新的網球比賽開始」。
+
+請生成以下內容：
+
+tennis_score.feature：完整可執行的 Gherkin 測試。
+
+測試步驟檔（C#）：對應 假設、當、並且、那麼。
+
+程式骨架（C#）：包含 TennisGame class、PointWonBy(Side side)、GetScoreText()、Side enum（PlayerA / PlayerB）。
+
+必要的 domain 字串映射：Love, Fifteen, Thirty, Forty。
+
+實作建議：Deuce 的條件、Adv 的條件、Win 的條件、TDD 建議的開發順序。
+
+額外要求：
+所有輸出使用正體中文。
+Feature 與測試需能在 Spec-kit（C# + NUnit）環境下使用。
+程式碼需可讀、乾淨、易擴充。
+不要跳過步驟，不要自行簡化。

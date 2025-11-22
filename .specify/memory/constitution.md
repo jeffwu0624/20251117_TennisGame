@@ -1,18 +1,16 @@
 <!--
 SYNC IMPACT REPORT
 ===================
-Version change: 1.0.0 → 1.1.0
-Modified principles: N/A
-Added sections:
-  - Principle VI: Traditional Chinese Documentation (正體中文文件規範)
+Version change: 1.1.0 → 1.2.0
+Modified principles:
+  - Principle IV: 'Test-First Development' → 'Testability & Atomic Commits'
+Added sections: N/A
 Removed sections: N/A
 Templates requiring updates:
-  ✅ .specify/templates/plan-template.md (reviewed, constitution check updated)
-  ✅ .specify/templates/spec-template.md (reviewed, compatible)
-  ✅ .specify/templates/tasks-template.md (reviewed, compatible)
-Follow-up TODOs:
-  - Team should review existing documentation for language compliance
-  - Update PR template to include Traditional Chinese documentation check
+  ✅ .specify/templates/tasks-template.md (updated to reflect atomic commit guidance)
+  ✅ .github/agents/speckit.implement.agent.md (updated to enforce commit-per-task)
+  ✅ .specify/memory/constitution.md (this file)
+Follow-up TODOs: N/A
 -->
 
 # TennisGame Constitution
@@ -54,19 +52,17 @@ Interfaces MUST be client-specific and cohesive. High-level modules MUST NOT dep
 
 **Rationale**: ISP prevents interface pollution and reduces coupling. DIP inverts control flow, enabling testability, flexibility, and decoupling from infrastructure details.
 
-### IV. Test-First Development (NON-NEGOTIABLE)
+### IV. Testability & Atomic Commits (NON-NEGOTIABLE)
 
-All production code MUST follow the Red-Green-Refactor TDD cycle:
+All production code MUST be designed for testability and committed incrementally:
 
-- Write unit tests FIRST that define expected behavior
-- Ensure tests FAIL initially (Red phase validates test correctness)
-- Implement minimal code to make tests pass (Green phase)
-- Refactor for quality while keeping tests green (Refactor phase)
-- Aim for >80% code coverage for business logic and services
-- Use xUnit as the primary test framework
-- Mock external dependencies using Moq or NSubstitute
+- **Test-First**: Follow the Red-Green-Refactor TDD cycle. Write a failing test before writing production code.
+- **Design for Testability**: Write clean, loosely-coupled code (using SRP, DIP) that is inherently easy to test. Avoid static methods and tight coupling where possible.
+- **Atomic Commits**: Each task (and its corresponding test) from `tasks.md` MUST be completed in a single, atomic commit. This creates a clean, auditable, and revertible project history.
+- **Coverage**: Aim for >80% code coverage for business logic and services.
+- **Frameworks**: Use xUnit as the primary test framework and Moq/NSubstitute for mocking.
 
-**Rationale**: TDD ensures every line of code is justified by a test, catches regressions early, serves as living documentation, and drives better design through testability pressure.
+**Rationale**: TDD ensures every line of code is justified by a test. Designing for testability leads to better architecture. Atomic commits provide a step-by-step, safe, and understandable development process, enabling risk-free iteration.
 
 ### V. Explicit Configuration & Observability
 
@@ -180,6 +176,7 @@ Reviewers MUST verify:
 - [ ] Async/await used correctly (no blocking calls like `.Result` or `.Wait()`)
 - [ ] Nullable reference types handled (no null-forgiving operator `!` without justification)
 - [ ] Tests are present, meaningful, and pass
+- [ ] Commits are atomic and correspond to individual tasks from `tasks.md`.
 - [ ] Logging includes sufficient context for troubleshooting
 - [ ] No unnecessary complexity (YAGNI - You Aren't Gonna Need It)
 - [ ] Documentation in Traditional Chinese (spec, comments, ADRs)
@@ -236,4 +233,4 @@ When violating a principle is necessary, document in `Complexity Tracking` table
 - Track changes in Sync Impact Report (HTML comment at top of this file)
 - Link version history to commit SHAs for auditability
 
-**Version**: 1.1.0 | **Ratified**: 2025-11-18 | **Last Amended**: 2025-11-18
+**Version**: 1.2.0 | **Ratified**: 2025-11-18 | **Last Amended**: 2025-11-22
