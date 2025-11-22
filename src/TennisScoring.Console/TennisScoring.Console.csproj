@@ -12,4 +12,8 @@
     <ProjectReference Include="..\TennisScoring\TennisScoring.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <InternalsVisibleTo Include="TennisScoring.Console.Tests" />
+  </ItemGroup>
+
 </Project>
