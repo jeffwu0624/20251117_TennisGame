@@ -31,15 +31,7 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-- [ ] **SRP Compliance**: Each component has single, well-defined responsibility
-- [ ] **OCP/LSP Compliance**: Design uses interfaces for extensibility; derived types honor contracts
-- [ ] **ISP/DIP Compliance**: Interfaces are focused; dependencies use DI with abstractions
-- [ ] **Test-First**: TDD approach planned (tests before implementation)
-- [ ] **Configuration & Observability**: Secrets externalized; structured logging planned
-- [ ] **Traditional Chinese Documentation**: All specs, plans, comments use Traditional Chinese (正體中文)
-- [ ] **.NET Standards**: C# 12+ nullable types, async/await, proper naming conventions
-- [ ] **Project Structure**: Follows Clean Architecture (Core/Infrastructure/Api separation)
-- [ ] **Complexity Justified**: Any principle violations documented in Complexity Tracking table
+[Gates determined based on constitution file]
 
 ## Project Structure
 
