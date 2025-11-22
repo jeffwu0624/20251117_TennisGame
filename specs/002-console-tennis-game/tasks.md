@@ -45,7 +45,7 @@ description: "Task list for feature 002-console-tennis-game"
 
 - [X] T014 [P] [US1] 在 `tests/TennisScoring.Console.Tests/MatchControllerStartTests.cs` 撰寫測試涵蓋輸入姓名與初始比分
 - [X] T015 [US1] 在 `src/TennisScoring.Console/InputValidator.cs` 實作姓名驗證（非空白、去除前後空白）
-- [ ] T016 [US1] 在 `src/TennisScoring.Console/ConsoleUI.cs` 實作雙方球員姓名提示與錯誤訊息顯示
+- [X] T016 [US1] 在 `src/TennisScoring.Console/ConsoleUI.cs` 實作雙方球員姓名提示與錯誤訊息顯示
 - [ ] T017 [US1] 在 `src/TennisScoring.Console/MatchController.cs` 實作初始化流程並於啟動時顯示 `Game.GetScoreText()`
 
 **Checkpoint**: 完成後可獨立啟動比賽並確認初始比分顯示
