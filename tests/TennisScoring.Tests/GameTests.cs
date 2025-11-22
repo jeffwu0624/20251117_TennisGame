@@ -266,4 +266,62 @@ public class GameTests
         act.Should().Throw<InvalidOperationException>()
             .WithMessage("Game has already finished.");
     }
+
+    // 邊界測試 (Boundary Tests)
+    [Fact]
+    public void ScoreTenTen_ShouldReturn_Deuce()
+    {
+        var game = new Game();
+        for (int i = 0; i < 10; i++)
+        {
+            game.PointWonBy(Side.PlayerA);
+            game.PointWonBy(Side.PlayerB);
+        }
+        game.GetScoreText().Should().Be("Deuce");
+        game.IsFinished.Should().BeFalse();
+    }
+
+    [Fact]
+    public void ScoreElevenTen_ShouldReturn_PlayerAAdv()
+    {
+        var game = new Game();
+        for (int i = 0; i < 10; i++)
+        {
+            game.PointWonBy(Side.PlayerA);
+            game.PointWonBy(Side.PlayerB);
+        }
+        game.PointWonBy(Side.PlayerA);
+        game.GetScoreText().Should().Be("PlayerA Adv");
+        game.IsFinished.Should().BeFalse();
+    }
+
+    [Fact]
+    public void ScoreTwelveThirteen_ShouldReturn_PlayerBAdv()
+    {
+        var game = new Game();
+        for (int i = 0; i < 12; i++)
+        {
+            game.PointWonBy(Side.PlayerA);
+            game.PointWonBy(Side.PlayerB);
+        }
+        game.PointWonBy(Side.PlayerB);
+        game.GetScoreText().Should().Be("PlayerB Adv");
+        game.IsFinished.Should().BeFalse();
+    }
+
+    [Fact]
+    public void ScoreFifteenThirteen_ShouldReturn_PlayerAWin()
+    {
+        var game = new Game();
+        for (int i = 0; i < 13; i++)
+        {
+            game.PointWonBy(Side.PlayerA);
+            game.PointWonBy(Side.PlayerB);
+        }
+        game.PointWonBy(Side.PlayerA);
+        game.PointWonBy(Side.PlayerA);
+        game.GetScoreText().Should().Be("PlayerA Win");
+        game.Winner.Should().Be(Side.PlayerA);
+        game.IsFinished.Should().BeTrue();
+    }
 }
