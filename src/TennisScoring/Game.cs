@@ -9,12 +9,23 @@ public class Game
     private int _playerBScore;
 
     /// <summary>
+    /// 取得獲勝球員，若比賽尚未結束則為 null
+    /// </summary>
+    public Side? Winner { get; private set; }
+
+    /// <summary>
+    /// 取得比賽是否已結束（已產生獲勝者）
+    /// </summary>
+    public bool IsFinished => Winner != null;
+
+    /// <summary>
     /// 建立新的網球局，初始分數為 0-0 (Love-All)
     /// </summary>
     public Game()
     {
         _playerAScore = 0;
         _playerBScore = 0;
+        Winner = null;
     }
 
     /// <summary>
