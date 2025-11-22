@@ -60,10 +60,10 @@ description: "Task list for feature 002-console-tennis-game"
 
 ### 實作任務
 
-- [ ] T018 [P] [US2] 在 `tests/TennisScoring.Console.Tests/MatchControllerScoreTests.cs` 撰寫測試涵蓋一般與 Deuce/Advantage 情境
-- [ ] T019 [US2] 在 `src/TennisScoring.Console/InputValidator.cs` 實作得分選項解析與錯誤訊息
-- [ ] T020 [US2] 在 `src/TennisScoring.Console/ConsoleUI.cs` 實作得分選擇提示與比分顯示函式
-- [ ] T021 [US2] 在 `src/TennisScoring.Console/MatchController.cs` 實作回合迴圈並呼叫 `Game.PointWonBy`
+- [X] T018 [P] [US2] 在 `tests/TennisScoring.Console.Tests/MatchControllerScoreTests.cs` 撰寫測試涵蓋一般與 Deuce/Advantage 情境
+- [X] T019 [US2] 在 `src/TennisScoring.Console/InputValidator.cs` 實作得分選項解析與錯誤訊息
+- [X] T020 [US2] 在 `src/TennisScoring.Console/ConsoleUI.cs` 實作得分選擇提示與比分顯示函式
+- [X] T021 [US2] 在 `src/TennisScoring.Console/MatchController.cs` 實作回合迴圈並呼叫 `Game.PointWonBy`
 
 **Checkpoint**: 完成後可連續輸入得分並正確顯示更新後的術語比分
 

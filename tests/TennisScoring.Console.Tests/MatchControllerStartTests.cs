@@ -17,11 +17,10 @@ public class MatchControllerStartTests
 
         await controller.RunAsync();
 
-        Assert.Collection(
-            adapter.WrittenLines,
-            first => Assert.Equal("請輸入第一位球員姓名：", first),
-            second => Assert.Equal("請輸入第二位球員姓名：", second),
-            third => Assert.Equal("比分：Love-All", third));
+        Assert.True(adapter.WrittenLines.Count >= 3, "至少應顯示初始姓名提示與比分");
+        Assert.Equal("請輸入第一位球員姓名：", adapter.WrittenLines[0]);
+        Assert.Equal("請輸入第二位球員姓名：", adapter.WrittenLines[1]);
+        Assert.Equal("比分：Love-All", adapter.WrittenLines[2]);
     }
 
     [Fact]

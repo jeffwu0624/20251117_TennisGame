@@ -54,6 +54,11 @@ internal sealed class ConsoleUI
         return _console.WriteLineAsync($"比分：{scoreText}", cancellationToken);
     }
 
+    public Task ShowWinnerAsync(string winnerName, CancellationToken cancellationToken = default)
+    {
+        return _console.WriteLineAsync($"勝利者：{winnerName}", cancellationToken);
+    }
+
     private async Task<string?> PromptPlayerNameInternalAsync(string prompt, CancellationToken cancellationToken)
     {
         await _console.WriteLineAsync(prompt, cancellationToken).ConfigureAwait(false);

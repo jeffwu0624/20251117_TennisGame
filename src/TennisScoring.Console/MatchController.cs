@@ -29,6 +29,45 @@ internal sealed class MatchController
         _game = new Game();
         var scoreText = _game.GetScoreText();
         await _ui.ShowInitialScoreAsync(scoreText, cancellationToken).ConfigureAwait(false);
+        
+        // Begin scoring loop
+        while (true)
+        {
+            if (_game.IsFinished)
+                break;
+
+            var selection = await _ui.PromptScoreSelectionAsync(cancellationToken).ConfigureAwait(false);
+
+            if (selection is null)
+            {
+                // No input available (test adapter exhausted) -> exit
+                return;
+            }
+
+            if (_validator.IsExitCommand(selection))
+            {
+                return;
+            }
+
+            if (!_validator.TryParseScoringSelection(selection, out var playerIndex))
+            {
+                await _ui.ShowInvalidSelectionAsync(cancellationToken).ConfigureAwait(false);
+                continue;
+            }
+
+            var side = playerIndex == 0 ? Side.PlayerA : Side.PlayerB;
+            _game.PointWonBy(side);
+
+            var current = _game.GetScoreText();
+            await _ui.ShowCurrentScoreAsync(current, cancellationToken).ConfigureAwait(false);
+
+            if (_game.IsFinished)
+            {
+                var winnerName = _game.Winner == Side.PlayerA ? _playerOneName : _playerTwoName;
+                await _ui.ShowWinnerAsync(winnerName ?? "", cancellationToken).ConfigureAwait(false);
+                break;
+            }
+        }
     }
 
     private async Task<bool> InitializePlayersAsync(CancellationToken cancellationToken)
@@ -53,6 +92,12 @@ internal sealed class MatchController
         while (true)
         {
             var input = await prompt().ConfigureAwait(false);
+            if (input is null)
+            {
+                // Treat closed input stream as exit
+                return null;
+            }
+
             if (_validator.IsExitCommand(input))
             {
                 return null;
