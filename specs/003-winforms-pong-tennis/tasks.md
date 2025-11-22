@@ -37,7 +37,7 @@
 - [x] T016 [US2] 在 `src/TennisScoring.WinForms/Engine/PongEngine.cs` 實作 `Update` 方法 (物理移動、碰撞偵測、計分)
 - [x] T017 [US2] 在 `src/TennisScoring.WinForms/Engine/PongEngine.cs` 實作球拍與球的碰撞偵測及反彈邏輯
 - [x] T018 [US2] 在 `src/TennisScoring.WinForms/Engine/PongEngine.cs` 實作發球邏輯 (空白鍵發射球)
-- [ ] T019 [US2] 在 `tests/TennisScoring.WinForms.Tests/PongEnginePhysicsTests.cs` 加入移動與碰撞邏輯的單元測試
+- [x] T019 [US2] 在 `tests/TennisScoring.WinForms.Tests/PongEnginePhysicsTests.cs` 加入移動與碰撞邏輯的單元測試
 - [ ] T020 [US2] 在 `src/TennisScoring.WinForms/Forms/GameForm.cs` 實作 `GameForm` 輸入處理 (`KeyDown`/`KeyUp`) 並對應至 `InputState`
 - [ ] T021 [US2] 在 `src/TennisScoring.WinForms/Forms/GameForm.cs` 實作 `GameForm.OnPaint` 以繪製 `GameState` (球拍、球)
 - [ ] T022 [US2] 在 `src/TennisScoring.WinForms/Forms/GameForm.cs` 使用 `System.Windows.Forms.Timer` 實作遊戲迴圈
