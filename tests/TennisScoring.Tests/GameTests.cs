@@ -256,4 +256,18 @@ public class GameTests
         game.Winner.Should().Be(Side.PlayerB);
         game.IsFinished.Should().BeTrue();
     }
+
+    [Fact]
+    public void PointWonByAfterGameFinished_ShouldThrow_InvalidOperationException()
+    {
+        var game = new Game();
+        game.PointWonBy(Side.PlayerA);
+        game.PointWonBy(Side.PlayerA);
+        game.PointWonBy(Side.PlayerA);
+        game.PointWonBy(Side.PlayerA);
+
+        var act = () => game.PointWonBy(Side.PlayerA);
+        act.Should().Throw<InvalidOperationException>()
+            .WithMessage("Game has already finished.");
+    }
 }
