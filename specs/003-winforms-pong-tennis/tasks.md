@@ -17,7 +17,7 @@
 
 - [x] T005 [P] 在 `src/TennisScoring.WinForms/Engine/IPongGameEngine.cs` 定義 `IPongGameEngine`, `InputState`, `GameState`
 - [x] T006 [P] 在 `src/TennisScoring.WinForms/Entities/Paddle.cs` 實作 `Paddle` 實體
-- [ ] T007 [P] 在 `src/TennisScoring.WinForms/Entities/Ball.cs` 實作 `Ball` 實體
+- [x] T007 [P] 在 `src/TennisScoring.WinForms/Entities/Ball.cs` 實作 `Ball` 實體
 - [ ] T008 [P] 在 `src/TennisScoring.WinForms/Entities/Player.cs` 實作 `Player` 實體
 
 ## Phase 3: User Story 1 - Initialization (遊戲初始化)
