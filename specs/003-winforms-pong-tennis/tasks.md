@@ -33,7 +33,7 @@
 ## Phase 4: User Story 2 - Gameplay & Control (遊戲進行與控制)
 *Goal: 球拍移動、球移動、碰撞處理*
 
-- [ ] T015 [US2] 在 `src/TennisScoring.WinForms/Engine/PongEngine.cs` 實作 `PongEngine.HandleInput` 以更新球拍速度/位置
+- [x] T015 [US2] 在 `src/TennisScoring.WinForms/Engine/PongEngine.cs` 實作 `HandleInput` 方法 (處理 Q, A, P, L, Space)
 - [ ] T016 [US2] 在 `src/TennisScoring.WinForms/Engine/PongEngine.cs` 實作 `PongEngine.Update` 處理球的移動與牆壁碰撞 (上/下)
 - [ ] T017 [US2] 在 `src/TennisScoring.WinForms/Engine/PongEngine.cs` 實作球拍與球的碰撞偵測及反彈邏輯
 - [ ] T018 [US2] 在 `src/TennisScoring.WinForms/Engine/PongEngine.cs` 實作發球邏輯 (空白鍵發射球)

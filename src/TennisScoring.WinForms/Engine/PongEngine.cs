@@ -22,6 +22,8 @@ public class PongEngine : IPongGameEngine
     private const float BallRadius = 10f;
     private const float BallSpeed = 500f;
     private const float PaddleMargin = 30f;
+    
+    private InputState _currentInput = new InputState();
 
     public PongEngine(string playerAName, string playerBName, Size gameArea)
     {
@@ -78,13 +80,40 @@ public class PongEngine : IPongGameEngine
     public void Update(float deltaTime)
     {
         if (!IsRunning) return;
-        // Update logic will be implemented in T016
+
+        // Process Input (Movement)
+        if (_currentInput.PlayerAUp) PlayerA.Paddle.MoveUp(deltaTime, 0);
+        if (_currentInput.PlayerADown) PlayerA.Paddle.MoveDown(deltaTime, _gameArea.Height);
+
+        if (_currentInput.PlayerBUp) PlayerB.Paddle.MoveUp(deltaTime, 0);
+        if (_currentInput.PlayerBDown) PlayerB.Paddle.MoveDown(deltaTime, _gameArea.Height);
+
+        // Process Input (Serve)
+        if (_currentInput.Serve && Ball.Velocity.IsEmpty)
+        {
+            ServeBall();
+        }
+        
+        // Physics & Collision (T016)
     }
 
     public void HandleInput(InputState input)
     {
         if (!IsRunning) return;
-        // Input handling logic will be implemented in T015
+        _currentInput = input;
+    }
+
+    private void ServeBall()
+    {
+        float dirX = ServingSide == Side.PlayerA ? 1 : -1;
+        // Add a slight random Y component (-0.5 to 0.5)
+        float dirY = (float)(new Random().NextDouble() - 0.5); 
+        
+        // Normalize vector
+        float length = (float)Math.Sqrt(dirX * dirX + dirY * dirY);
+        float speed = BallSpeed;
+        
+        Ball.Velocity = new PointF((dirX / length) * speed, (dirY / length) * speed);
     }
 
     public GameState GetState()
