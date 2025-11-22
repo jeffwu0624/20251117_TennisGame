@@ -17,7 +17,7 @@ description: "Task list for feature 002-console-tennis-game"
 - [X] T003 在 `src/TennisScoring.Console/TennisScoring.Console.csproj` 新增對 `src/TennisScoring/TennisScoring.csproj` 的專案參考
 - [X] T004 更新 `src/TennisScoring.Console/TennisScoring.Console.csproj` 使 `<Nullable>` 與 `<TreatWarningsAsErrors>` 啟用
 - [X] T005 在 `tests/TennisScoring.Console.Tests` 建立 xUnit 專案 `TennisScoring.Console.Tests.csproj`
-- [ ] T006 將 `tests/TennisScoring.Console.Tests/TennisScoring.Console.Tests.csproj` 加入 `TennisScoring.sln` 並參考 `src/TennisScoring.Console`
+- [X] T006 將 `tests/TennisScoring.Console.Tests/TennisScoring.Console.Tests.csproj` 加入 `TennisScoring.sln` 並參考 `src/TennisScoring.Console`
 
 ---
 
