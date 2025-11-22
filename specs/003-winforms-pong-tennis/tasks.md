@@ -23,7 +23,7 @@
 ## Phase 3: User Story 1 - Initialization (遊戲初始化)
 *Goal: 遊戲開始時輸入玩家姓名並隨機決定發球方*
 
-- [ ] T009 [US1] 在 `src/TennisScoring.WinForms/Engine/PongEngine.cs` 建立實作 `IPongGameEngine` 的 `PongEngine` 類別骨架
+- [x] T009 [US1] 在 `src/TennisScoring.WinForms/Engine/PongEngine.cs` 建立實作 `IPongGameEngine` 的 `PongEngine` 類別骨架
 - [ ] T010 [US1] 在 `src/TennisScoring.WinForms/Engine/PongEngine.cs` 實作 `PongEngine` 初始化邏輯 (玩家、隨機發球方、重置狀態)
 - [ ] T011 [US1] 在 `tests/TennisScoring.WinForms.Tests/PongEngineTests.cs` 建立 `PongEngine` 初始化的單元測試
 - [ ] T012 [US1] 在 `src/TennisScoring.WinForms/Forms/GameForm.cs` 建立 `GameForm` 並啟用 DoubleBuffered
