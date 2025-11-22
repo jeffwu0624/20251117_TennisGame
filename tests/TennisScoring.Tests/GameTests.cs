@@ -181,4 +181,79 @@ public class GameTests
         game.PointWonBy(Side.PlayerB);
         game.GetScoreText().Should().Be("PlayerB Adv");
     }
+
+    // 獲勝判定測試 (US4)
+    [Fact]
+    public void ScoreFourZero_ShouldReturn_PlayerAWin()
+    {
+        var game = new Game();
+        game.PointWonBy(Side.PlayerA);
+        game.PointWonBy(Side.PlayerA);
+        game.PointWonBy(Side.PlayerA);
+        game.PointWonBy(Side.PlayerA);
+        game.GetScoreText().Should().Be("PlayerA Win");
+        game.Winner.Should().Be(Side.PlayerA);
+        game.IsFinished.Should().BeTrue();
+    }
+
+    [Fact]
+    public void ScoreFourOne_ShouldReturn_PlayerAWin()
+    {
+        var game = new Game();
+        game.PointWonBy(Side.PlayerA);
+        game.PointWonBy(Side.PlayerA);
+        game.PointWonBy(Side.PlayerA);
+        game.PointWonBy(Side.PlayerB);
+        game.PointWonBy(Side.PlayerA);
+        game.GetScoreText().Should().Be("PlayerA Win");
+        game.Winner.Should().Be(Side.PlayerA);
+        game.IsFinished.Should().BeTrue();
+    }
+
+    [Fact]
+    public void ScoreFourTwo_ShouldReturn_PlayerAWin()
+    {
+        var game = new Game();
+        game.PointWonBy(Side.PlayerA);
+        game.PointWonBy(Side.PlayerA);
+        game.PointWonBy(Side.PlayerB);
+        game.PointWonBy(Side.PlayerB);
+        game.PointWonBy(Side.PlayerA);
+        game.PointWonBy(Side.PlayerA);
+        game.GetScoreText().Should().Be("PlayerA Win");
+        game.Winner.Should().Be(Side.PlayerA);
+        game.IsFinished.Should().BeTrue();
+    }
+
+    [Fact]
+    public void ScoreFiveThree_ShouldReturn_PlayerAWin()
+    {
+        var game = new Game();
+        for (int i = 0; i < 3; i++)
+        {
+            game.PointWonBy(Side.PlayerA);
+            game.PointWonBy(Side.PlayerB);
+        }
+        game.PointWonBy(Side.PlayerA);
+        game.PointWonBy(Side.PlayerA);
+        game.GetScoreText().Should().Be("PlayerA Win");
+        game.Winner.Should().Be(Side.PlayerA);
+        game.IsFinished.Should().BeTrue();
+    }
+
+    [Fact]
+    public void ScoreThreeFive_ShouldReturn_PlayerBWin()
+    {
+        var game = new Game();
+        for (int i = 0; i < 3; i++)
+        {
+            game.PointWonBy(Side.PlayerA);
+            game.PointWonBy(Side.PlayerB);
+        }
+        game.PointWonBy(Side.PlayerB);
+        game.PointWonBy(Side.PlayerB);
+        game.GetScoreText().Should().Be("PlayerB Win");
+        game.Winner.Should().Be(Side.PlayerB);
+        game.IsFinished.Should().BeTrue();
+    }
 }
