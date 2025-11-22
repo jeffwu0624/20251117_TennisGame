@@ -25,7 +25,7 @@ description: "Task list for feature 002-console-tennis-game"
 
 **Purpose**: 建立可測且具測試替身的核心骨架
 
-- [ ] T007 在 `src/TennisScoring.Console/Program.cs` 建立入口骨架並啟動 `MatchController`
+- [X] T007 在 `src/TennisScoring.Console/Program.cs` 建立入口骨架並啟動 `MatchController`
 - [ ] T008 在 `src/TennisScoring.Console/Abstractions/IConsoleAdapter.cs` 定義主控台介面以利測試替換
 - [ ] T009 在 `src/TennisScoring.Console/Console/SystemConsoleAdapter.cs` 實作 `IConsoleAdapter` 封裝 `System.Console`
 - [ ] T010 在 `src/TennisScoring.Console/ConsoleUI.cs` 建立類別骨架並注入 `IConsoleAdapter`
