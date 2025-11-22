@@ -4,8 +4,14 @@ internal sealed class InputValidator
 {
     public bool TryNormalizePlayerName(string? input, out string normalized)
     {
-        normalized = input?.Trim() ?? string.Empty;
-        return false;
+        if (string.IsNullOrWhiteSpace(input))
+        {
+            normalized = string.Empty;
+            return false;
+        }
+
+        normalized = input.Trim();
+        return normalized.Length > 0;
     }
 
     public bool TryParseScoringSelection(string? input, out int playerIndex)
