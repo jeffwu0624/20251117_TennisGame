@@ -39,6 +39,10 @@ public class Game
         if (_playerAScore >= 3 && _playerBScore >= 3 && _playerAScore == _playerBScore)
             return "Deuce";
 
+        // Advantage 判斷（雙方 >= 3 分且差距為 1）
+        if (_playerAScore >= 3 && _playerBScore >= 3 && Math.Abs(_playerAScore - _playerBScore) == 1)
+            return _playerAScore > _playerBScore ? "PlayerA Adv" : "PlayerB Adv";
+
         // 基本計分（0-3）
         string scoreA = MapScore(_playerAScore);
         string scoreB = MapScore(_playerBScore);
