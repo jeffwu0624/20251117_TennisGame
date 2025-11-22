@@ -57,6 +57,13 @@ public class Game
     /// <returns>比分文字，如 "Love-All"、"Fifteen-Love"、"Deuce" 等</returns>
     public string GetScoreText()
     {
+        // 獲勝判斷（某方 >= 4 分且領先 >= 2 分）
+        if ((_playerAScore >= 4 || _playerBScore >= 4) &&
+            Math.Abs(_playerAScore - _playerBScore) >= 2)
+        {
+            return _playerAScore > _playerBScore ? "PlayerA Win" : "PlayerB Win";
+        }
+
         // Deuce 判斷（雙方 >= 3 分且平手）
         if (_playerAScore >= 3 && _playerBScore >= 3 && _playerAScore == _playerBScore)
             return "Deuce";

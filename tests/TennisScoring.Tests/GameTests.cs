@@ -104,14 +104,11 @@ public class GameTests
     public void ScoreFourFour_ShouldReturn_Deuce()
     {
         var game = new Game();
-        game.PointWonBy(Side.PlayerA);
-        game.PointWonBy(Side.PlayerA);
-        game.PointWonBy(Side.PlayerA);
-        game.PointWonBy(Side.PlayerA);
-        game.PointWonBy(Side.PlayerB);
-        game.PointWonBy(Side.PlayerB);
-        game.PointWonBy(Side.PlayerB);
-        game.PointWonBy(Side.PlayerB);
+        for (int i = 0; i < 4; i++)
+        {
+            game.PointWonBy(Side.PlayerA);
+            game.PointWonBy(Side.PlayerB);
+        }
         game.GetScoreText().Should().Be("Deuce");
     }
 
@@ -132,13 +129,12 @@ public class GameTests
     public void ScoreFourThree_ShouldReturn_PlayerAAdv()
     {
         var game = new Game();
+        for (int i = 0; i < 3; i++)
+        {
+            game.PointWonBy(Side.PlayerA);
+            game.PointWonBy(Side.PlayerB);
+        }
         game.PointWonBy(Side.PlayerA);
-        game.PointWonBy(Side.PlayerA);
-        game.PointWonBy(Side.PlayerA);
-        game.PointWonBy(Side.PlayerA);
-        game.PointWonBy(Side.PlayerB);
-        game.PointWonBy(Side.PlayerB);
-        game.PointWonBy(Side.PlayerB);
         game.GetScoreText().Should().Be("PlayerA Adv");
     }
 
