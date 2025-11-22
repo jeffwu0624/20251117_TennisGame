@@ -148,7 +148,7 @@ public void ScoreOneZero_ShouldReturn_FifteenLove()
 
 - [x] T013 [P] [US3] 撰寫單元測試於 `tests/TennisScoring.Tests/GameTests.cs` 測試 Advantage 情境（4-3, 3-4, 5-4, 4-5，共 4 個測試方法）
 - [x] T014 [US3] 擴充 Game.GetScoreText() 於 `src/TennisScoring/Game.cs` 加入 Advantage 判斷邏輯（if a >= 3 && b >= 3 && |a-b| == 1）
-- [ ] T015 [US3] 執行所有測試確認 US1-US2 未受影響（迴歸測試）
+- [x] T015 [US3] 執行所有測試確認 US1-US2 未受影響（迴歸測試）
 
 **驗證標準**:
 - ✅ 4 個 Advantage 測試通過
@@ -164,11 +164,11 @@ public void ScoreOneZero_ShouldReturn_FifteenLove()
 
 ### 任務清單
 
-- [ ] T016 [P] [US4] 撰寫單元測試於 `tests/TennisScoring.Tests/GameTests.cs` 測試獲勝情境（5-3, 3-5, 4-0, 4-1, 4-2，共 5 個測試方法）及 Winner/IsFinished 屬性
-- [ ] T017 [P] [US4] 撰寫單元測試於 `tests/TennisScoring.Tests/GameTests.cs` 測試比賽結束後呼叫 PointWonBy() 拋出 InvalidOperationException
-- [ ] T018 [US4] 實作 Game.Winner 和 IsFinished 屬性於 `src/TennisScoring/Game.cs`（Winner 為 Side?, IsFinished 由 Winner != null 推導）
-- [ ] T019 [US4] 擴充 Game.PointWonBy() 於 `src/TennisScoring/Game.cs` 加入獲勝判定邏輯（累加分數後檢查獲勝條件，設定 Winner）並在方法開頭檢查 IsFinished 拋出例外
-- [ ] T020 [US4] 擴充 Game.GetScoreText() 於 `src/TennisScoring/Game.cs` 加入獲勝判斷邏輯（if (a >= 4 || b >= 4) && |a-b| >= 2）
+- [x] T016 [P] [US4] 撰寫單元測試於 `tests/TennisScoring.Tests/GameTests.cs` 測試獲勝情境（5-3, 3-5, 4-0, 4-1, 4-2，共 5 個測試方法）及 Winner/IsFinished 屬性
+- [x] T017 [P] [US4] 撰寫單元測試於 `tests/TennisScoring.Tests/GameTests.cs` 測試比賽結束後呼叫 PointWonBy() 拋出 InvalidOperationException
+- [x] T018 [US4] 實作 Game.Winner 和 IsFinished 屬性於 `src/TennisScoring/Game.cs`（Winner 為 Side?, IsFinished 由 Winner != null 推導）
+- [x] T019 [US4] 擴充 Game.PointWonBy() 於 `src/TennisScoring/Game.cs` 加入獲勝判定邏輯（累加分數後檢查獲勝條件，設定 Winner）並在方法開頭檢查 IsFinished 拋出例外
+- [x] T020 [US4] 擴充 Game.GetScoreText() 於 `src/TennisScoring/Game.cs` 加入獲勝判斷邏輯（if (a >= 4 || b >= 4) && |a-b| >= 2）
 - [ ] T021 [US4] 執行所有測試確認 US1-US3 未受影響（迴歸測試）
 
 **驗證標準**:
