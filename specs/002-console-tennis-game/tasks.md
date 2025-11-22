@@ -29,7 +29,7 @@ description: "Task list for feature 002-console-tennis-game"
 - [X] T008 在 `src/TennisScoring.Console/Abstractions/IConsoleAdapter.cs` 定義主控台介面以利測試替換
 - [X] T009 在 `src/TennisScoring.Console/Console/SystemConsoleAdapter.cs` 實作 `IConsoleAdapter` 封裝 `System.Console`
 - [X] T010 在 `src/TennisScoring.Console/ConsoleUI.cs` 建立類別骨架並注入 `IConsoleAdapter`
-- [ ] T011 在 `src/TennisScoring.Console/InputValidator.cs` 建立輸入驗證骨架與方法簽章
+- [X] T011 在 `src/TennisScoring.Console/InputValidator.cs` 建立輸入驗證骨架與方法簽章
 - [ ] T012 在 `src/TennisScoring.Console/MatchController.cs` 建立比賽流程骨架（含建構函式與 `RunAsync` 雛形）
 - [ ] T013 [P] 在 `tests/TennisScoring.Console.Tests/Console/FakeConsoleAdapter.cs` 建立可注入的主控台測試替身
 
