@@ -12,6 +12,7 @@ public class GameForm : Form
     private Panel _pnlSetup = null!;
     private PongEngine? _gameEngine;
     private InputState _inputState = new InputState();
+    private System.Windows.Forms.Timer _gameTimer = null!;
 
     public GameForm()
     {
@@ -28,6 +29,23 @@ public class GameForm : Form
         UpdateStyles();
 
         InitializeSetupControls();
+        InitializeGameTimer();
+    }
+
+    private void InitializeGameTimer()
+    {
+        _gameTimer = new System.Windows.Forms.Timer();
+        _gameTimer.Interval = 16; // ~60 FPS
+        _gameTimer.Tick += GameLoop_Tick;
+    }
+
+    private void GameLoop_Tick(object? sender, EventArgs e)
+    {
+        if (_gameEngine != null && _gameEngine.IsRunning)
+        {
+            _gameEngine.Update(0.016f); // Fixed time step for simplicity
+            Invalidate();
+        }
     }
 
     private void InitializeSetupControls()
@@ -73,6 +91,7 @@ public class GameForm : Form
         // Initialize Engine
         _gameEngine = new PongEngine(nameA, nameB, ClientSize);
         _gameEngine.Start();
+        _gameTimer.Start();
 
         Focus(); // Ensure form has focus for key events
     }

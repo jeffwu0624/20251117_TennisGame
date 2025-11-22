@@ -40,7 +40,7 @@
 - [x] T019 [US2] 在 `tests/TennisScoring.WinForms.Tests/PongEnginePhysicsTests.cs` 加入移動與碰撞邏輯的單元測試
 - [x] T020 [US2] 在 `src/TennisScoring.WinForms/Forms/GameForm.cs` 實作 `GameForm` 輸入處理 (`KeyDown`/`KeyUp`) 並對應至 `InputState`
 - [x] T021 [US2] 在 `src/TennisScoring.WinForms/Forms/GameForm.cs` 實作 `GameForm.OnPaint` 以繪製 `GameState` (球拍、球)
-- [ ] T022 [US2] 在 `src/TennisScoring.WinForms/Forms/GameForm.cs` 使用 `System.Windows.Forms.Timer` 實作遊戲迴圈
+- [x] T022 [US2] 在 `src/TennisScoring.WinForms/Forms/GameForm.cs` 使用 `System.Windows.Forms.Timer` 實作遊戲迴圈
 
 ## Phase 5: User Story 3 - Scoring & Win (計分與勝負)
 *Goal: 整合 TennisScoring、顯示分數、處理獲勝條件*
