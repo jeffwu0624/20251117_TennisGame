@@ -28,4 +28,37 @@ public class Game
         else
             _playerBScore++;
     }
+
+    /// <summary>
+    /// 取得當前比分的網球術語文字表示
+    /// </summary>
+    /// <returns>比分文字，如 "Love-All"、"Fifteen-Love"、"Thirty-All" 等</returns>
+    public string GetScoreText()
+    {
+        // 基本計分（0-3）
+        string scoreA = MapScore(_playerAScore);
+        string scoreB = MapScore(_playerBScore);
+
+        // 平分格式
+        if (_playerAScore == _playerBScore)
+            return $"{scoreA}-All";
+
+        // 非平分格式
+        return $"{scoreA}-{scoreB}";
+    }
+
+    /// <summary>
+    /// 將數字分數映射為網球術語
+    /// </summary>
+    private static string MapScore(int points)
+    {
+        return points switch
+        {
+            0 => "Love",
+            1 => "Fifteen",
+            2 => "Thirty",
+            3 => "Forty",
+            _ => throw new ArgumentOutOfRangeException(nameof(points), "Basic score mapping only supports 0-3 points.")
+        };
+    }
 }
