@@ -34,9 +34,9 @@
 *Goal: 球拍移動、球移動、碰撞處理*
 
 - [x] T015 [US2] 在 `src/TennisScoring.WinForms/Engine/PongEngine.cs` 實作 `HandleInput` 方法 (處理 Q, A, P, L, Space)
-- [ ] T016 [US2] 在 `src/TennisScoring.WinForms/Engine/PongEngine.cs` 實作 `PongEngine.Update` 處理球的移動與牆壁碰撞 (上/下)
-- [ ] T017 [US2] 在 `src/TennisScoring.WinForms/Engine/PongEngine.cs` 實作球拍與球的碰撞偵測及反彈邏輯
-- [ ] T018 [US2] 在 `src/TennisScoring.WinForms/Engine/PongEngine.cs` 實作發球邏輯 (空白鍵發射球)
+- [x] T016 [US2] 在 `src/TennisScoring.WinForms/Engine/PongEngine.cs` 實作 `Update` 方法 (物理移動、碰撞偵測、計分)
+- [x] T017 [US2] 在 `src/TennisScoring.WinForms/Engine/PongEngine.cs` 實作球拍與球的碰撞偵測及反彈邏輯
+- [x] T018 [US2] 在 `src/TennisScoring.WinForms/Engine/PongEngine.cs` 實作發球邏輯 (空白鍵發射球)
 - [ ] T019 [US2] 在 `tests/TennisScoring.WinForms.Tests/PongEnginePhysicsTests.cs` 加入移動與碰撞邏輯的單元測試
 - [ ] T020 [US2] 在 `src/TennisScoring.WinForms/Forms/GameForm.cs` 實作 `GameForm` 輸入處理 (`KeyDown`/`KeyUp`) 並對應至 `InputState`
 - [ ] T021 [US2] 在 `src/TennisScoring.WinForms/Forms/GameForm.cs` 實作 `GameForm.OnPaint` 以繪製 `GameState` (球拍、球)
