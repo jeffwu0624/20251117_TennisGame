@@ -45,10 +45,10 @@
 
 ### 任務清單
 
-- [ ] T001 建立 Solution 和核心類別庫專案 `src/TennisScoring/TennisScoring.csproj` (target: net8.0)
-- [ ] T002 建立單元測試專案 `tests/TennisScoring.Tests/TennisScoring.Tests.csproj` 並參考核心專案
-- [ ] T003 [P] 配置專案 .csproj 啟用 Nullable Reference Types 和 TreatWarningsAsErrors
-- [ ] T004 [P] 安裝測試套件（xUnit 2.6.0, FluentAssertions 6.12.0）並執行 `dotnet restore`
+- [x] T001 建立 Solution 和核心類別庫專案 `src/TennisScoring/TennisScoring.csproj` (target: net8.0)
+- [x] T002 建立單元測試專案 `tests/TennisScoring.Tests/TennisScoring.Tests.csproj` 並參考核心專案
+- [x] T003 [P] 配置專案 .csproj 啟用 Nullable Reference Types 和 TreatWarningsAsErrors
+- [x] T004 [P] 安裝測試套件（xUnit 2.6.0, FluentAssertions 6.12.0）並執行 `dotnet restore`
 
 **驗證標準**:
 - `dotnet build` 成功編譯
@@ -74,8 +74,8 @@ tests/TennisScoring.Tests/
 
 ### 任務清單
 
-- [ ] T005 實作 Side 列舉於 `src/TennisScoring/Side.cs`（PlayerA = 0, PlayerB = 1）
-- [ ] T006 建立 Game 類別骨架於 `src/TennisScoring/Game.cs`（包含 PlayerAScore, PlayerBScore 私有欄位及建構函式初始化為 0）
+- [x] T005 實作 Side 列舉於 `src/TennisScoring/Side.cs`（PlayerA = 0, PlayerB = 1）
+- [x] T006 建立 Game 類別骨架於 `src/TennisScoring/Game.cs`（包含 PlayerAScore, PlayerBScore 私有欄位及建構函式初始化為 0）
 
 **驗證標準**:
 - `dotnet build` 編譯成功，無警告
@@ -90,9 +90,9 @@ tests/TennisScoring.Tests/
 
 ### 任務清單
 
-- [ ] T007 [P] [US1] 撰寫單元測試於 `tests/TennisScoring.Tests/GameTests.cs` 涵蓋所有基本計分情境（0-0 至 3-3，共 9 個測試方法）
-- [ ] T008 [US1] 實作 Game.PointWonBy(Side) 方法於 `src/TennisScoring/Game.cs`（累加對應球員分數）
-- [ ] T009 [US1] 實作 Game.GetScoreText() 方法於 `src/TennisScoring/Game.cs`（包含基本分數映射 0→Love, 1→Fifteen, 2→Thirty, 3→Forty，以及平分/非平分格式邏輯）
+- [x] T007 [P] [US1] 撰寫單元測試於 `tests/TennisScoring.Tests/GameTests.cs` 涵蓋所有基本計分情境（0-0 至 3-3，共 9 個測試方法）
+- [x] T008 [US1] 實作 Game.PointWonBy(Side) 方法於 `src/TennisScoring/Game.cs`（累加對應球員分數）
+- [x] T009 [US1] 實作 Game.GetScoreText() 方法於 `src/TennisScoring/Game.cs`（包含基本分數映射 0→Love, 1→Fifteen, 2→Thirty, 3→Forty，以及平分/非平分格式邏輯）
 
 **測試範例**（涵蓋規格中的 9 個驗收情境）:
 ```csharp
@@ -128,9 +128,9 @@ public void ScoreOneZero_ShouldReturn_FifteenLove()
 
 ### 任務清單
 
-- [ ] T010 [P] [US2] 撰寫單元測試於 `tests/TennisScoring.Tests/GameTests.cs` 測試 Deuce 情境（3-3, 4-4, 5-5，共 3 個測試方法）
-- [ ] T011 [US2] 擴充 Game.GetScoreText() 於 `src/TennisScoring/Game.cs` 加入 Deuce 判斷邏輯（if a >= 3 && b >= 3 && a == b）
-- [ ] T012 [US2] 執行所有測試確認 US1 未受影響（迴歸測試）
+- [x] T010 [P] [US2] 撰寫單元測試於 `tests/TennisScoring.Tests/GameTests.cs` 測試 Deuce 情境（3-3, 4-4, 5-5，共 3 個測試方法）
+- [x] T011 [US2] 擴充 Game.GetScoreText() 於 `src/TennisScoring/Game.cs` 加入 Deuce 判斷邏輯（if a >= 3 && b >= 3 && a == b）
+- [x] T012 [US2] 執行所有測試確認 US1 未受影響（迴歸測試）
 
 **驗證標準**:
 - ✅ 3 個 Deuce 測試通過
