@@ -169,7 +169,7 @@ public void ScoreOneZero_ShouldReturn_FifteenLove()
 - [x] T018 [US4] 實作 Game.Winner 和 IsFinished 屬性於 `src/TennisScoring/Game.cs`（Winner 為 Side?, IsFinished 由 Winner != null 推導）
 - [x] T019 [US4] 擴充 Game.PointWonBy() 於 `src/TennisScoring/Game.cs` 加入獲勝判定邏輯（累加分數後檢查獲勝條件，設定 Winner）並在方法開頭檢查 IsFinished 拋出例外
 - [x] T020 [US4] 擴充 Game.GetScoreText() 於 `src/TennisScoring/Game.cs` 加入獲勝判斷邏輯（if (a >= 4 || b >= 4) && |a-b| >= 2）
-- [ ] T021 [US4] 執行所有測試確認 US1-US3 未受影響（迴歸測試）
+- [x] T021 [US4] 執行所有測試確認 US1-US3 未受影響（迴歸測試）
 
 **驗證標準**:
 - ✅ 6 個獲勝相關測試通過
