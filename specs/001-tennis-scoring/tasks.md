@@ -183,9 +183,9 @@ public void ScoreOneZero_ShouldReturn_FifteenLove()
 
 ### 任務清單
 
-- [ ] T022 [P] 撰寫邊界測試於 `tests/TennisScoring.Tests/GameTests.cs`（測試超過 10 分的 Deuce 循環，如 10-10, 11-10）
-- [ ] T023 [P] 實作 Game.Reset() 方法於 `src/TennisScoring/Game.cs`（重置 PlayerAScore, PlayerBScore 為 0，Winner 為 null）並撰寫測試
-- [ ] T024 [P] 加入 XML 文件註解於 `src/TennisScoring/Game.cs` 和 `src/TennisScoring/Side.cs` 所有公開成員
+- [x] T022 [P] 撰寫邊界測試於 `tests/TennisScoring.Tests/GameTests.cs`（測試超過 10 分的 Deuce 循環，如 10-10, 11-10）
+- [x] T023 [P] 實作 Game.Reset() 方法於 `src/TennisScoring/Game.cs`（重置 PlayerAScore, PlayerBScore 為 0，Winner 為 null）並撰寫測試
+- [x] T024 [P] 加入 XML 文件註解於 `src/TennisScoring/Game.cs` 和 `src/TennisScoring/Side.cs` 所有公開成員
 
 **驗證標準**:
 - ✅ 邊界測試通過
