@@ -32,12 +32,23 @@ public class Game
     /// 記錄指定球員得分
     /// </summary>
     /// <param name="side">得分的球員方（PlayerA 或 PlayerB）</param>
+    /// <exception cref="InvalidOperationException">比賽已結束時拋出</exception>
     public void PointWonBy(Side side)
     {
+        if (IsFinished)
+            throw new InvalidOperationException("Game has already finished.");
+
         if (side == Side.PlayerA)
             _playerAScore++;
         else
             _playerBScore++;
+
+        // 檢查獲勝條件：某方 >= 4 分且領先 >= 2 分
+        if ((_playerAScore >= 4 || _playerBScore >= 4) &&
+            Math.Abs(_playerAScore - _playerBScore) >= 2)
+        {
+            Winner = _playerAScore > _playerBScore ? Side.PlayerA : Side.PlayerB;
+        }
     }
 
     /// <summary>
