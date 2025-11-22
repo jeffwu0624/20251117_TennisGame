@@ -324,4 +324,40 @@ public class GameTests
         game.Winner.Should().Be(Side.PlayerA);
         game.IsFinished.Should().BeTrue();
     }
+
+    // Reset 功能測試
+    [Fact]
+    public void Reset_ShouldResetScoreToLoveAll()
+    {
+        var game = new Game();
+        game.PointWonBy(Side.PlayerA);
+        game.PointWonBy(Side.PlayerA);
+        game.PointWonBy(Side.PlayerB);
+
+        game.Reset();
+
+        game.GetScoreText().Should().Be("Love-All");
+        game.Winner.Should().BeNull();
+        game.IsFinished.Should().BeFalse();
+    }
+
+    [Fact]
+    public void Reset_AfterGameFinished_ShouldAllowNewGame()
+    {
+        var game = new Game();
+        game.PointWonBy(Side.PlayerA);
+        game.PointWonBy(Side.PlayerA);
+        game.PointWonBy(Side.PlayerA);
+        game.PointWonBy(Side.PlayerA);
+
+        game.Reset();
+
+        game.GetScoreText().Should().Be("Love-All");
+        game.Winner.Should().BeNull();
+        game.IsFinished.Should().BeFalse();
+
+        // 驗證可以繼續計分
+        game.PointWonBy(Side.PlayerB);
+        game.GetScoreText().Should().Be("Love-Fifteen");
+    }
 }

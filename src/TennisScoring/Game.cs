@@ -98,4 +98,14 @@ public class Game
             _ => throw new ArgumentOutOfRangeException(nameof(points), "Basic score mapping only supports 0-3 points.")
         };
     }
+
+    /// <summary>
+    /// 重置比賽狀態，將分數歸零並清除獲勝者
+    /// </summary>
+    public void Reset()
+    {
+        _playerAScore = 0;
+        _playerBScore = 0;
+        Winner = null;
+    }
 }
