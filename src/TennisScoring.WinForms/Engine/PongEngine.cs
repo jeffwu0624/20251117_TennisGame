@@ -18,9 +18,9 @@ public class PongEngine : IPongGameEngine
     private readonly Size _gameArea;
     private const float PaddleWidth = 20f;
     private const float PaddleHeight = 100f;
-    private const float PaddleSpeed = 400f;
+    private const float PaddleSpeed = 500f;
     private const float BallRadius = 10f;
-    private const float BallSpeed = 500f;
+    private const float BallSpeed = 600f;
     private const float PaddleMargin = 30f;
     
     private InputState _currentInput = new InputState();
@@ -95,6 +95,70 @@ public class PongEngine : IPongGameEngine
         }
         
         // Physics & Collision (T016)
+        UpdatePhysics(deltaTime);
+    }
+
+    private void UpdatePhysics(float deltaTime)
+    {
+        // Move Ball
+        Ball.Move(deltaTime);
+
+        // Wall Collision (Top/Bottom)
+        if (Ball.Position.Y - Ball.Radius < 0)
+        {
+            Ball.BounceY();
+            Ball.Position = new PointF(Ball.Position.X, Ball.Radius);
+        }
+        else if (Ball.Position.Y + Ball.Radius > _gameArea.Height)
+        {
+            Ball.BounceY();
+            Ball.Position = new PointF(Ball.Position.X, _gameArea.Height - Ball.Radius);
+        }
+
+        // Paddle Collision
+        if (Ball.Bounds.IntersectsWith(PlayerA.Paddle.Bounds))
+        {
+            // Check if ball is moving towards paddle (to avoid sticking inside)
+            if (Ball.Velocity.X < 0)
+            {
+                Ball.BounceX();
+                Ball.Position = new PointF(PlayerA.Paddle.Bounds.Right + Ball.Radius + 1, Ball.Position.Y);
+            }
+        }
+        else if (Ball.Bounds.IntersectsWith(PlayerB.Paddle.Bounds))
+        {
+            if (Ball.Velocity.X > 0)
+            {
+                Ball.BounceX();
+                Ball.Position = new PointF(PlayerB.Paddle.Bounds.Left - Ball.Radius - 1, Ball.Position.Y);
+            }
+        }
+
+        // Scoring (Left/Right Walls)
+        if (Ball.Position.X + Ball.Radius < 0)
+        {
+            HandleScore(Side.PlayerB);
+        }
+        else if (Ball.Position.X - Ball.Radius > _gameArea.Width)
+        {
+            HandleScore(Side.PlayerA);
+        }
+    }
+
+    private void HandleScore(Side winner)
+    {
+        ScoringGame.PointWonBy(winner);
+        ScoreChanged?.Invoke(this, new ScoreChangedEventArgs(ScoringGame.GetScoreText()));
+
+        if (ScoringGame.IsFinished)
+        {
+            IsRunning = false;
+            GameEnded?.Invoke(this, new GameEndedEventArgs(ScoringGame.Winner!.Value, ScoringGame.GetScoreText()));
+        }
+        else
+        {
+            ResetBall();
+        }
     }
 
     public void HandleInput(InputState input)

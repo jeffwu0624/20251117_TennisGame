@@ -55,7 +55,7 @@
 ## Phase 6: Polish (修飾)
 *Goal: 視覺改進與參數調整*
 
-- [ ] T029 在 `src/TennisScoring.WinForms/Engine/PongEngine.cs` 調整物理常數 (速度、球拍大小) 以改善遊戲手感
+- [x] T029 在 `src/TennisScoring.WinForms/Engine/PongEngine.cs` 調整物理常數 (速度、球拍大小) 以改善遊戲手感
 - [ ] T030 在 `src/TennisScoring.WinForms/Forms/GameForm.cs` 改進繪圖 (顏色、字型、中線)
 
 ## Dependencies
