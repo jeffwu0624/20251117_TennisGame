@@ -88,6 +88,19 @@ public class PongEngine : IPongGameEngine
         if (_currentInput.PlayerBUp) PlayerB.Paddle.MoveUp(deltaTime, 0);
         if (_currentInput.PlayerBDown) PlayerB.Paddle.MoveDown(deltaTime, _gameArea.Height);
 
+        // Sync ball with paddle if waiting for serve
+        if (Ball.Velocity.IsEmpty)
+        {
+            if (ServingSide == Side.PlayerA)
+            {
+                Ball.Position = new PointF(PlayerA.Paddle.Bounds.Right + BallRadius + 5, PlayerA.Paddle.Bounds.Y + PaddleHeight / 2);
+            }
+            else
+            {
+                Ball.Position = new PointF(PlayerB.Paddle.Bounds.Left - BallRadius - 5, PlayerB.Paddle.Bounds.Y + PaddleHeight / 2);
+            }
+        }
+
         // Process Input (Serve)
         if (_currentInput.Serve && Ball.Velocity.IsEmpty)
         {
@@ -157,6 +170,7 @@ public class PongEngine : IPongGameEngine
         }
         else
         {
+            ServingSide = winner;
             ResetBall();
         }
     }

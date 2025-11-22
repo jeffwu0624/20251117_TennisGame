@@ -18,7 +18,7 @@ public class GameForm : Form
     {
         // Basic Form Setup
         Text = "Tennis Pong";
-        ClientSize = new Size(800, 600);
+        ClientSize = new Size(1600, 1200);
         StartPosition = FormStartPosition.CenterScreen;
         FormBorderStyle = FormBorderStyle.FixedSingle;
         MaximizeBox = false;
@@ -52,13 +52,16 @@ public class GameForm : Form
     {
         _pnlSetup = new Panel { Dock = DockStyle.Fill };
         
-        var lblA = new Label { Text = "Player A Name:", Location = new Point(250, 200), AutoSize = true, Font = new Font("Arial", 12) };
-        _txtPlayerA = new TextBox { Location = new Point(400, 200), Width = 150, Text = "PlayerA", Font = new Font("Arial", 12) };
+        int centerX = ClientSize.Width / 2;
+        int centerY = ClientSize.Height / 2;
+
+        var lblA = new Label { Text = "Player A Name:", Location = new Point(centerX - 200, centerY - 100), AutoSize = true, Font = new Font("Arial", 12) };
+        _txtPlayerA = new TextBox { Location = new Point(centerX + 60, centerY - 100), Width = 150, Text = "PlayerA", Font = new Font("Arial", 12) };
         
-        var lblB = new Label { Text = "Player B Name:", Location = new Point(250, 240), AutoSize = true, Font = new Font("Arial", 12) };
-        _txtPlayerB = new TextBox { Location = new Point(400, 240), Width = 150, Text = "PlayerB", Font = new Font("Arial", 12) };
+        var lblB = new Label { Text = "Player B Name:", Location = new Point(centerX - 200, centerY - 60), AutoSize = true, Font = new Font("Arial", 12) };
+        _txtPlayerB = new TextBox { Location = new Point(centerX + 60, centerY - 60), Width = 150, Text = "PlayerB", Font = new Font("Arial", 12) };
         
-        _btnStart = new Button { Text = "Start Game", Location = new Point(350, 300), Width = 100, Height = 40, Font = new Font("Arial", 12, FontStyle.Bold) };
+        _btnStart = new Button { Text = "Start Game", Location = new Point(centerX - 50, centerY), Width = 100, Height = 40, Font = new Font("Arial", 12, FontStyle.Bold) };
         _btnStart.Click += BtnStart_Click;
 
         _pnlSetup.Controls.Add(lblA);
@@ -170,7 +173,7 @@ public class GameForm : Form
         switch (key)
         {
             case Keys.Q: _inputState.PlayerAUp = isPressed; break;
-            case Keys.J: _inputState.PlayerADown = isPressed; break;
+            case Keys.A: _inputState.PlayerADown = isPressed; break;
             case Keys.Up: _inputState.PlayerBUp = isPressed; break;
             case Keys.Down: _inputState.PlayerBDown = isPressed; break;
             case Keys.Space: _inputState.Serve = isPressed; break;
