@@ -146,8 +146,8 @@ public void ScoreOneZero_ShouldReturn_FifteenLove()
 
 ### 任務清單
 
-- [ ] T013 [P] [US3] 撰寫單元測試於 `tests/TennisScoring.Tests/GameTests.cs` 測試 Advantage 情境（4-3, 3-4, 5-4, 4-5，共 4 個測試方法）
-- [ ] T014 [US3] 擴充 Game.GetScoreText() 於 `src/TennisScoring/Game.cs` 加入 Advantage 判斷邏輯（if a >= 3 && b >= 3 && |a-b| == 1）
+- [x] T013 [P] [US3] 撰寫單元測試於 `tests/TennisScoring.Tests/GameTests.cs` 測試 Advantage 情境（4-3, 3-4, 5-4, 4-5，共 4 個測試方法）
+- [x] T014 [US3] 擴充 Game.GetScoreText() 於 `src/TennisScoring/Game.cs` 加入 Advantage 判斷邏輯（if a >= 3 && b >= 3 && |a-b| == 1）
 - [ ] T015 [US3] 執行所有測試確認 US1-US2 未受影響（迴歸測試）
 
 **驗證標準**:
