@@ -7,7 +7,7 @@
 
 **Purpose**: 專案初始化與測試環境準備
 
-- [ ] T001 建立測試檔案 tests/TennisScoring.WinForms.Tests/PongEngineScoringTests.cs
+- [x] T001 建立測試檔案 tests/TennisScoring.WinForms.Tests/PongEngineScoringTests.cs
 
 ## Phase 2: Foundational (Blocking Prerequisites)
 
@@ -23,8 +23,8 @@
 
 ### Implementation for User Story 1
 
-- [ ] T002 [US1] 實作 ServeBall 支援速度倍率計算並更新 Ball.Speed 屬性 src/TennisScoring.WinForms/Engine/PongEngine.cs
-- [ ] T003 [US1] 實作 HandleScore 遊戲結束時的倍率遞增邏輯 src/TennisScoring.WinForms/Engine/PongEngine.cs
+- [x] T002 [US1] 實作 ServeBall 支援速度倍率計算並更新 Ball.Speed 屬性 src/TennisScoring.WinForms/Engine/PongEngine.cs
+- [x] T003 [US1] 實作 HandleScore 遊戲結束時的倍率遞增邏輯 src/TennisScoring.WinForms/Engine/PongEngine.cs
 
 ## Phase 4: User Story 2 - 球速上限限制 (Priority: P1)
 

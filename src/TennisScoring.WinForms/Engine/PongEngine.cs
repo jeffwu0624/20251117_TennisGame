@@ -15,6 +15,12 @@ public class PongEngine : IPongGameEngine
     public bool IsRunning { get; private set; }
     public Side ServingSide { get; private set; }
 
+    /// <summary>
+    /// 當前球速倍率，範圍 1.0 ~ 2.0
+    /// 每局遊戲結束後增加 0.5 倍，直到達到上限
+    /// </summary>
+    private float _speedMultiplier = 1.0f;
+
     private readonly Size _gameArea;
     private const float PaddleWidth = 20f;
     private const float PaddleHeight = 100f;
@@ -166,8 +172,16 @@ public class PongEngine : IPongGameEngine
         if (ScoringGame.IsFinished)
         {
             IsRunning = false;
+            
+            // 在遊戲結束時更新球速倍率
+            _speedMultiplier = Math.Min(_speedMultiplier + 0.5f, 2.0f);
+            
             var winnerName = ScoringGame.Winner!.Value == Side.PlayerA ? PlayerA.Name : PlayerB.Name;
             GameEnded?.Invoke(this, new GameEndedEventArgs(ScoringGame.Winner!.Value, winnerName, ScoringGame.GetScoreText()));
+            
+            // 重置遊戲狀態以便進行下一局
+            ScoringGame.Reset();
+            ResetBall();
         }
         else
         {
@@ -190,7 +204,12 @@ public class PongEngine : IPongGameEngine
         
         // Normalize vector
         float length = (float)Math.Sqrt(dirX * dirX + dirY * dirY);
-        float speed = BallSpeed;
+        
+        // 套用速度倍率
+        float speed = BallSpeed * _speedMultiplier;
+        
+        // 更新 Ball.Speed 屬性以保持一致性
+        Ball.Speed = speed;
         
         Ball.Velocity = new PointF((dirX / length) * speed, (dirY / length) * speed);
     }
