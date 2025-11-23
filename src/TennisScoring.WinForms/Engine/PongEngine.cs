@@ -36,19 +36,19 @@ public class PongEngine : IPongGameEngine
         _gameArea = gameArea;
         ScoringGame = new Game();
 
-        // Initialize Paddles
+        // 初始化球拍
         float centerY = (gameArea.Height - PaddleHeight) / 2;
         var paddleA = new Paddle(PaddleMargin, centerY, PaddleWidth, PaddleHeight, PaddleSpeed, Color.Blue);
         var paddleB = new Paddle(gameArea.Width - PaddleMargin - PaddleWidth, centerY, PaddleWidth, PaddleHeight, PaddleSpeed, Color.Red);
 
-        // Initialize Players
+        // 初始化玩家
         PlayerA = new Player(playerAName, Side.PlayerA, paddleA);
         PlayerB = new Player(playerBName, Side.PlayerB, paddleB);
 
-        // Initialize Ball
+        // 初始化球
         Ball = new Ball(0, 0, BallRadius, BallSpeed);
 
-        // Randomize Server
+        // 隨機決定發球方
         ServingSide = new Random().Next(2) == 0 ? Side.PlayerA : Side.PlayerB;
         
         ResetBall();
@@ -56,12 +56,12 @@ public class PongEngine : IPongGameEngine
 
     private void ResetBall()
     {
-        // Place ball in front of the serving paddle
+        // 將球放置在發球方球拍前方
         if (ServingSide == Side.PlayerA)
         {
             Ball.Reset(
                 new PointF(PlayerA.Paddle.Bounds.Right + BallRadius + 5, PlayerA.Paddle.Bounds.Y + PaddleHeight / 2),
-                PointF.Empty // Velocity 0 until served
+                PointF.Empty // 發球前速度為 0
             );
         }
         else
@@ -87,14 +87,14 @@ public class PongEngine : IPongGameEngine
     {
         if (!IsRunning) return;
 
-        // Process Input (Movement)
+        // 處理輸入 (移動)
         if (_currentInput.PlayerAUp) PlayerA.Paddle.MoveUp(deltaTime, 0);
         if (_currentInput.PlayerADown) PlayerA.Paddle.MoveDown(deltaTime, _gameArea.Height);
 
         if (_currentInput.PlayerBUp) PlayerB.Paddle.MoveUp(deltaTime, 0);
         if (_currentInput.PlayerBDown) PlayerB.Paddle.MoveDown(deltaTime, _gameArea.Height);
 
-        // Sync ball with paddle if waiting for serve
+        // 等待發球時同步球與球拍位置
         if (Ball.Velocity.IsEmpty)
         {
             if (ServingSide == Side.PlayerA)
@@ -107,22 +107,22 @@ public class PongEngine : IPongGameEngine
             }
         }
 
-        // Process Input (Serve)
+        // 處理輸入 (發球)
         if (_currentInput.Serve && Ball.Velocity.IsEmpty)
         {
             ServeBall();
         }
         
-        // Physics & Collision (T016)
+        // 物理與碰撞運算
         UpdatePhysics(deltaTime);
     }
 
     private void UpdatePhysics(float deltaTime)
     {
-        // Move Ball
+        // 移動球
         Ball.Move(deltaTime);
 
-        // Wall Collision (Top/Bottom)
+        // 牆壁碰撞 (上/下)
         if (Ball.Position.Y - Ball.Radius < 0)
         {
             Ball.BounceY();
@@ -134,10 +134,10 @@ public class PongEngine : IPongGameEngine
             Ball.Position = new PointF(Ball.Position.X, _gameArea.Height - Ball.Radius);
         }
 
-        // Paddle Collision
+        // 球拍碰撞
         if (Ball.Bounds.IntersectsWith(PlayerA.Paddle.Bounds))
         {
-            // Check if ball is moving towards paddle (to avoid sticking inside)
+            // 檢查球是否向球拍移動 (避免黏在內部)
             if (Ball.Velocity.X < 0)
             {
                 Ball.BounceX();
@@ -153,7 +153,7 @@ public class PongEngine : IPongGameEngine
             }
         }
 
-        // Scoring (Left/Right Walls)
+        // 得分判定 (左/右牆)
         if (Ball.Position.X + Ball.Radius < 0)
         {
             HandleScore(Side.PlayerB);
@@ -199,10 +199,10 @@ public class PongEngine : IPongGameEngine
     private void ServeBall()
     {
         float dirX = ServingSide == Side.PlayerA ? 1 : -1;
-        // Add a slight random Y component (-0.5 to 0.5)
+        // 增加些微隨機 Y 分量 (-0.5 到 0.5)
         float dirY = (float)(new Random().NextDouble() - 0.5); 
         
-        // Normalize vector
+        // 正規化向量
         float length = (float)Math.Sqrt(dirX * dirX + dirY * dirY);
         
         // 套用速度倍率
@@ -216,7 +216,7 @@ public class PongEngine : IPongGameEngine
 
     public GameState GetState()
     {
-        // State retrieval logic
+        // 狀態檢索邏輯
         return new GameState
         {
             PlayerAPaddle = PlayerA?.Paddle?.Bounds ?? RectangleF.Empty,

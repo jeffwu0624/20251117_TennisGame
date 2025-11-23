@@ -50,7 +50,7 @@
 
 **Purpose**: 程式碼清理與文件完善
 
-- [ ] T006 檢查並補全正體中文註解 src/TennisScoring.WinForms/Engine/PongEngine.cs
+- [x] T006 檢查並補全正體中文註解 src/TennisScoring.WinForms/Engine/PongEngine.cs
 - [ ] T007 執行完整測試套件確保無回歸錯誤 tests/TennisScoring.WinForms.Tests/
 
 ## Dependencies & Execution Order
