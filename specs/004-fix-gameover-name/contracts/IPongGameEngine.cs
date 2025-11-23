@@ -3,45 +3,45 @@ using System.Drawing;
 namespace TennisScoring.WinForms.Engine;
 
 /// <summary>
-/// Contract for the Pong Game Engine.
-/// Defines the interaction between the UI (Form) and the Game Logic.
+/// Pong 遊戲引擎的合約。
+/// 定義 UI (Form) 與遊戲邏輯之間的互動。
 /// </summary>
 public interface IPongGameEngine
 {
     /// <summary>
-    /// Starts the game loop.
+    /// 啟動遊戲迴圈。
     /// </summary>
     void Start();
 
     /// <summary>
-    /// Stops the game loop.
+    /// 停止遊戲迴圈。
     /// </summary>
     void Stop();
 
     /// <summary>
-    /// Updates the game state for a single tick.
+    /// 更新單一 Tick 的遊戲狀態。
     /// </summary>
-    /// <param name="deltaTime">Time elapsed since last update.</param>
+    /// <param name="deltaTime">自上次更新以來經過的時間。</param>
     void Update(float deltaTime);
 
     /// <summary>
-    /// Handles player input.
+    /// 處理玩家輸入。
     /// </summary>
-    /// <param name="input">Input state (keys pressed).</param>
+    /// <param name="input">輸入狀態（按下的按鍵）。</param>
     void HandleInput(InputState input);
 
     /// <summary>
-    /// Gets the current state of the game entities for rendering.
+    /// 取得用於渲染的遊戲實體目前狀態。
     /// </summary>
     GameState GetState();
 
     /// <summary>
-    /// Event triggered when the score changes.
+    /// 當分數改變時觸發的事件。
     /// </summary>
     event EventHandler<ScoreChangedEventArgs> ScoreChanged;
 
     /// <summary>
-    /// Event triggered when the game ends.
+    /// 當遊戲結束時觸發的事件。
     /// </summary>
     event EventHandler<GameEndedEventArgs> GameEnded;
 }

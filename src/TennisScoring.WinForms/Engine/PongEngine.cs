@@ -166,7 +166,8 @@ public class PongEngine : IPongGameEngine
         if (ScoringGame.IsFinished)
         {
             IsRunning = false;
-            GameEnded?.Invoke(this, new GameEndedEventArgs(ScoringGame.Winner!.Value, ScoringGame.GetScoreText()));
+            var winnerName = ScoringGame.Winner!.Value == Side.PlayerA ? PlayerA.Name : PlayerB.Name;
+            GameEnded?.Invoke(this, new GameEndedEventArgs(ScoringGame.Winner!.Value, winnerName, ScoringGame.GetScoreText()));
         }
         else
         {
