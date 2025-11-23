@@ -22,7 +22,7 @@
     - 檔案: `src/TennisScoring.WinForms/Engine/PongEngine.cs`
     - 動作: 在 `HandleScore` 中，從 `PlayerA` 或 `PlayerB` 取得獲勝者名稱並傳遞給 `GameEndedEventArgs`。
 
-- [ ] T003 [US1] 更新 `GameForm.cs` 以在遊戲結束對話框中顯示 `WinnerName`
+- [x] T003 [US1] 更新 `GameForm.cs` 以在遊戲結束對話框中顯示 `WinnerName`
     - 檔案: `src/TennisScoring.WinForms/Forms/GameForm.cs`
     - 動作: 在 `GameEngine_GameEnded` 中，於 `MessageBox.Show` 呼叫中使用 `e.WinnerName`。
 
