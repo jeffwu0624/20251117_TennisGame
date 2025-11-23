@@ -97,4 +97,44 @@ public class PongEnginePhysicsTests
         // Assert
         Assert.True(engine.Ball.Velocity.X < 0); // Should bounce left
     }
+
+    [Fact]
+    public void Ball_AtHighSpeed_ShouldBounceOffWallCorrectly()
+    {
+        // Arrange
+        var engine = new PongEngine("A", "B", new Size(800, 600));
+        engine.Start();
+        
+        // Set high speed (2.0x = 1200)
+        float highSpeed = 1200f;
+        engine.Ball.Reset(new PointF(400, 15), new PointF(highSpeed, -highSpeed)); // Moving up-right fast
+        
+        // Act
+        engine.Update(0.02f); // Small step, but fast movement
+        
+        // Assert
+        // Should have hit top wall (Y=0) and bounced down
+        Assert.True(engine.Ball.Velocity.Y > 0, "Ball should bounce down off top wall at high speed");
+    }
+
+    [Fact]
+    public void Ball_AtHighSpeed_ShouldBounceOffPaddleCorrectly()
+    {
+        // Arrange
+        var engine = new PongEngine("A", "B", new Size(800, 600));
+        engine.Start();
+        
+        // Set high speed (2.0x = 1200)
+        float highSpeed = 1200f;
+        
+        // Place ball near Player B's paddle (Right), moving right fast
+        // Paddle B is at X=750.
+        engine.Ball.Reset(new PointF(730, 300), new PointF(highSpeed, 0));
+        
+        // Act
+        engine.Update(0.02f); // Move
+        
+        // Assert
+        Assert.True(engine.Ball.Velocity.X < 0, "Ball should bounce left off paddle at high speed");
+    }
 }

@@ -44,7 +44,7 @@
 
 ### Implementation for User Story 3
 
-- [ ] T005 [US3] 新增高速度下的物理碰撞測試案例 tests/TennisScoring.WinForms.Tests/PongEnginePhysicsTests.cs
+- [x] T005 [US3] 新增高速度下的物理碰撞測試案例 tests/TennisScoring.WinForms.Tests/PongEnginePhysicsTests.cs
 
 ## Phase 6: Polish & Cross-Cutting Concerns
 
