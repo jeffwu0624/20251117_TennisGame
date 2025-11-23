@@ -34,7 +34,7 @@
 
 ### Implementation for User Story 2
 
-- [ ] T004 [US2] 實作倍率上限保護邏輯 (Max 2.0) src/TennisScoring.WinForms/Engine/PongEngine.cs
+- [x] T004 [US2] 實作倍率上限保護邏輯 (Max 2.0) src/TennisScoring.WinForms/Engine/PongEngine.cs
 
 ## Phase 5: User Story 3 - 視覺回饋與玩家感知 (Priority: P2)
 

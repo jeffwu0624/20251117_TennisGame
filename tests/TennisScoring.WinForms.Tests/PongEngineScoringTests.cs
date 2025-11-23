@@ -133,4 +133,76 @@ public class PongEngineScoringTests
         // Assert: Speed should be 1.5x (600 * 1.5 = 900)
         Assert.Equal(900f, engine.Ball.Speed);
     }
+
+    [Fact]
+    public void SecondGameEnd_ShouldIncreaseBallSpeedTo2_0x()
+    {
+        // Arrange
+        var engine = new PongEngine("A", "B", new Size(800, 600));
+        engine.Start();
+        
+        void WinGame(Side winner)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                engine.HandleInput(new InputState { Serve = true });
+                engine.Update(0.1f);
+                if (winner == Side.PlayerA) engine.Ball.Reset(new PointF(805, 300), new PointF(100, 0));
+                else engine.Ball.Reset(new PointF(-5, 300), new PointF(-100, 0));
+                engine.Update(0.1f);
+            }
+        }
+
+        // Act: Win Game 1
+        WinGame(Side.PlayerA);
+        engine.Start(); // Start Game 2
+        
+        // Act: Win Game 2
+        WinGame(Side.PlayerA);
+        engine.Start(); // Start Game 3
+        
+        engine.HandleInput(new InputState { Serve = true });
+        engine.Update(0.1f);
+        
+        // Assert: Speed should be 2.0x (600 * 2.0 = 1200)
+        Assert.Equal(1200f, engine.Ball.Speed);
+    }
+
+    [Fact]
+    public void ThirdGameEnd_ShouldMaintainBallSpeedAt2_0x()
+    {
+        // Arrange
+        var engine = new PongEngine("A", "B", new Size(800, 600));
+        engine.Start();
+        
+        void WinGame(Side winner)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                engine.HandleInput(new InputState { Serve = true });
+                engine.Update(0.1f);
+                if (winner == Side.PlayerA) engine.Ball.Reset(new PointF(805, 300), new PointF(100, 0));
+                else engine.Ball.Reset(new PointF(-5, 300), new PointF(-100, 0));
+                engine.Update(0.1f);
+            }
+        }
+
+        // Act: Win Game 1 (Speed -> 1.5)
+        WinGame(Side.PlayerA);
+        engine.Start();
+        
+        // Act: Win Game 2 (Speed -> 2.0)
+        WinGame(Side.PlayerA);
+        engine.Start();
+        
+        // Act: Win Game 3 (Speed -> 2.0 capped)
+        WinGame(Side.PlayerA);
+        engine.Start(); // Start Game 4
+        
+        engine.HandleInput(new InputState { Serve = true });
+        engine.Update(0.1f);
+        
+        // Assert: Speed should still be 2.0x (1200)
+        Assert.Equal(1200f, engine.Ball.Speed);
+    }
 }
