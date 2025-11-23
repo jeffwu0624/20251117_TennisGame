@@ -18,7 +18,7 @@
     - 檔案: `src/TennisScoring.WinForms/Engine/IPongGameEngine.cs`
     - 動作: 新增 `public string WinnerName { get; }` 並更新建構函式。
 
-- [ ] T002 [US1] 更新 `PongEngine.cs` 以在遊戲結束時填入 `WinnerName`
+- [x] T002 [US1] 更新 `PongEngine.cs` 以在遊戲結束時填入 `WinnerName`
     - 檔案: `src/TennisScoring.WinForms/Engine/PongEngine.cs`
     - 動作: 在 `HandleScore` 中，從 `PlayerA` 或 `PlayerB` 取得獲勝者名稱並傳遞給 `GameEndedEventArgs`。
 
