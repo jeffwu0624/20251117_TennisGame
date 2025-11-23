@@ -76,11 +76,13 @@ public class ScoreChangedEventArgs : EventArgs
 public class GameEndedEventArgs : EventArgs
 {
     public Side Winner { get; }
+    public string WinnerName { get; }
     public string Message { get; }
 
-    public GameEndedEventArgs(Side winner, string message)
+    public GameEndedEventArgs(Side winner, string winnerName, string message)
     {
         Winner = winner;
+        WinnerName = winnerName;
         Message = message;
     }
 }

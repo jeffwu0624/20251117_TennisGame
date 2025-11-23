@@ -14,7 +14,7 @@
 **目標**: 確保遊戲結束對話框顯示獲勝者的實際名稱。
 **獨立測試**: 使用自訂名稱進行遊戲，並驗證對話框中顯示獲勝者名稱。
 
-- [ ] T001 [US1] 更新 `IPongGameEngine.cs` 中的 `GameEndedEventArgs` 以包含 `WinnerName` 屬性
+- [x] T001 [US1] 更新 `IPongGameEngine.cs` 中的 `GameEndedEventArgs` 以包含 `WinnerName` 屬性
     - 檔案: `src/TennisScoring.WinForms/Engine/IPongGameEngine.cs`
     - 動作: 新增 `public string WinnerName { get; }` 並更新建構函式。
 
