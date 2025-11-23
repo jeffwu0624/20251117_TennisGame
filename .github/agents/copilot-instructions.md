@@ -26,7 +26,6 @@ C# 12 / .NET 8.0: Follow standard conventions
 ## Recent Changes
 - 004-fix-gameover-name: Added C# 12 (.NET 8) + Windows Forms
 - 003-winforms-pong-tennis: Added C# 12 / .NET 8.0 + `System.Windows.Forms`, `System.Drawing`, `TennisScoring` (Project Reference)
-- 003-winforms-pong-tennis: Added C# 12 / .NET 8.0 + `System.Windows.Forms`, `System.Drawing`, `TennisScoring` (Project Reference)
 
 
 <!-- MANUAL ADDITIONS START -->
