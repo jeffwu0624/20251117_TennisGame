@@ -104,7 +104,7 @@ public class GameForm : Form
     {
         _gameTimer.Stop();
         Invalidate(); // Draw final state
-        MessageBox.Show($"{e.Message}\nWinner: {e.WinnerName}", "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        MessageBox.Show($"Winner is {e.WinnerName}", "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Information);
         // Optional: Reset to setup screen?
         // For now, just stop.
     }

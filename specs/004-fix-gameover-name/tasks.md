@@ -27,7 +27,9 @@
     - 動作: 在 `GameEngine_GameEnded` 中，於 `MessageBox.Show` 呼叫中使用 `e.WinnerName`。
 
 ## 第四階段：潤飾與橫切關注點 (Polish & Cross-Cutting Concerns)
-*無需潤飾任務。*
+- [x] T004 [Refinement] 更新遊戲結束對話框訊息為 "Winner is {player name}"
+    - 檔案: `src/TennisScoring.WinForms/Forms/GameForm.cs`
+    - 動作: 修改 MessageBox 文字格式，移除舊的訊息，僅顯示 "Winner is {WinnerName}"。
 
 ## 相依性 (Dependencies)
 
